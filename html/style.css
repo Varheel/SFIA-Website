@@ -1,6 +1,19 @@
 body
 {
 	font-family: sans-serif;
+	margin: 0;
+}
+
+img
+{
+	margin-bottom: -4px;
+}
+
+#discord-widget
+{
+	position: fixed;
+	bottom: 10px;
+	right: 20px;
 }
 
 .center-block
