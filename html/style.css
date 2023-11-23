@@ -9,11 +9,25 @@ img
 	margin-bottom: -4px;
 }
 
-#discord-widget
+@media only screen and (max-width: 1200px)
 {
-	position: fixed;
-	bottom: 10px;
-	right: 20px;
+	#discord-widget
+	{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 350px;
+	}
+}
+
+@media only screen and (min-width: 1200px)
+{
+	#discord-widget
+	{
+		position: fixed;
+		bottom: 10px;
+		right: 14px;
+	}
 }
 
 .center-block
