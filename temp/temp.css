@@ -1,8 +1,15 @@
-body
+body 
 {
-	background: #333;
-	font-family: sans-serif;
-	margin: 0;
+    background-image: url('assets/PersistentPage.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    background-position: center center;
+}
+
+@font-face 
+{
+    font-family: 'BRAVE Eightyone Regular';
+    src: url('fonts/BraveEightyoneRegular-ZVGvm.ttf') format('truetype');
 }
 
 img
@@ -26,9 +33,9 @@ img
 
 .grid > div
 {
-	background: #777;
-	margin: 0.39vw;
-	padding: 0.39vw;
+	background: rgba(119, 119, 119, 0.2);
+	margin: 5px;
+	padding: 3px;
 }
 
 .grid-header
@@ -37,6 +44,7 @@ img
 	grid-column-end: 6;
 	grid-row-start: 1;
 	grid-row-end: 3;
+	max-height: 83.1px;
 }
 
 .grid-footer
@@ -45,6 +53,7 @@ img
 	grid-column-end: 6;
 	grid-row-start: 17;
 	grid-row-end: 19;
+	max-height: 83.3px;
 }
 
 .grid-panel-left
@@ -53,6 +62,7 @@ img
 	grid-column-end: 2;
 	grid-row-start: 3;
 	grid-row-end: 17;
+	max-height: 636.9px;
 }
 
 .grid-panel-right
@@ -61,6 +71,7 @@ img
 	grid-column-end: 6;
 	grid-row-start: 3;
 	grid-row-end: 17;
+	max-height: 636.9px;
 }
 
 .grid-box-a
@@ -69,6 +80,42 @@ img
 	grid-column-end: 5;
 	grid-row-start: 3;
 	grid-row-end: 5;
+	max-height: 83.3px;
+}
+
+.grid-box-a .img-container 
+{
+	position: relative;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	background-image: url('assets/Button 2.png');
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.grid-box-a .img-container .overlay 
+{
+	position: absolute;
+	bottom: 10%;
+	left: 2%;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.grid-box-a .img-container .overlay h1 {
+	color: rgba(13, 24, 2, 0.899);
+	font-family: "Brave Eightyone Regular", sans-serif;
+	font-weight: regular;
+	font-size: clamp(8px, 2vw, 16px);
+	text-align: left;
+	vertical-align: top;
+}
+
+.grid-box-a .img-container .overlay h1 .alliance {
+    display: block;
 }
 
 .grid-box-b
@@ -77,6 +124,7 @@ img
 	grid-column-end: 3;
 	grid-row-start: 5;
 	grid-row-end: 8;
+	max-height: 129.433px;
 }
 
 .grid-box-c
@@ -85,6 +133,7 @@ img
 	grid-column-end: 3;
 	grid-row-start: 8;
 	grid-row-end: 11;
+	max-height: 129.433px;
 }
 
 .grid-box-d
@@ -93,6 +142,7 @@ img
 	grid-column-end: 3;
 	grid-row-start: 11;
 	grid-row-end: 12;
+	max-height: 37.1667px;
 }
 
 .grid-box-e
@@ -101,6 +151,7 @@ img
 	grid-column-end: 3;
 	grid-row-start: 12;
 	grid-row-end: 15;
+	max-height: 129.433px;
 }
 
 .grid-box-f
@@ -109,6 +160,18 @@ img
 	grid-column-end: 4;
 	grid-row-start: 5;
 	grid-row-end: 15;
+	max-height: 452.367px;
+}
+
+.grid-box-f .pic
+{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-image: url('pic05.jpg');
+	background-size: contain;
+	background-position:center center;
+	background-repeat: no-repeat;
 }
 
 .grid-box-g
@@ -117,6 +180,7 @@ img
 	grid-column-end: 5;
 	grid-row-start: 5;
 	grid-row-end: 8;
+	max-height: 129.433px;
 }
 
 .grid-box-h
@@ -125,6 +189,7 @@ img
 	grid-column-end: 5;
 	grid-row-start: 8;
 	grid-row-end: 12;
+	max-height: 175.567px;
 }
 
 .grid-box-i
@@ -133,6 +198,7 @@ img
 	grid-column-end: 5;
 	grid-row-start: 12;
 	grid-row-end: 17;
+	max-height: 221.7px;
 }
 
 .grid-box-j
@@ -141,4 +207,5 @@ img
 	grid-column-end: 4;
 	grid-row-start: 15;
 	grid-row-end: 17;
+	max-height: 83.3px;
 }
