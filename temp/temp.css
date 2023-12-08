@@ -1,6 +1,8 @@
 body
 {
-	background: #333;
+	/*background: #0f1a12;*/
+	background-image: url('assets/persistent Page.png');
+	background-size: 100% 100%;
 	font-family: sans-serif;
 	margin: 0;
 }
@@ -17,6 +19,48 @@ img
 	margin-right: auto;
 }
 
+.box-1
+{
+	background-image: url('assets/Button 1.png');
+	background-size: 100% 100%;
+}
+
+.box-2
+{
+	background-image: url('assets/Button 2.png');
+	background-size: 100% 100%;
+}
+
+.box-3
+{
+	background-image: url('assets/Button 3.png');
+	background-size: 100% 100%;
+}
+
+.box-4
+{
+	background-image: url('assets/Button 4.png');
+	background-size: 100% 100%;
+}
+
+.box-5
+{
+	background-image: url('assets/Button 6.png');
+	background-size: 100% 100%;
+}
+
+.box-6
+{
+	background-image: url('assets/Button 7.png');
+	background-size: 100% 100%;
+}
+
+.box-7
+{
+	background-image: url('assets/Button 8.png');
+	background-size: 100% 100%;
+}
+
 .grid
 {
 	display: grid;
@@ -26,7 +70,7 @@ img
 
 .grid > div
 {
-	background: #777;
+	/*background: #777;*/
 	margin: 0.39vw;
 	padding: 0.39vw;
 }
