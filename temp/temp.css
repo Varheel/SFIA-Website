@@ -7,6 +7,12 @@ body
 	margin: 0;
 }
 
+@font-face 
+{
+	font-family: 'BRAVE Eightyone Regular';
+	src: url(fonts/BraveEightyoneRegular-ZVGvm.ttf) format('truetype')
+}
+
 img
 {
 	margin-bottom: -4px;
