@@ -38,15 +38,14 @@ img
 /* The main container for boxes */
 #main-content
 {
-	margin: 50px 200px 50px;
+	margin: 50px 200px;
 }
 
 /* Our org name as a header in the first box */
 #org-title
 {
-	display: inline;
-	vertical-align: top;
 	font-family: BRAVE Eightyone Regular;
+	margin: 0;
 }
 
 /* The screenshot of the Hammerhead in the center of the page */
