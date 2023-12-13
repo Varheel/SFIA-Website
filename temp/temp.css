@@ -1,8 +1,8 @@
 body
 {
-	background-image: url('assets/persistent Page.png');
+	background-image: url('assets/mblBG.png');
 	background-size: 100% 100%;
-	font-family: sans-serif;
+	background-repeat: no-repeat;
 	margin: 0;
 }
 
@@ -175,8 +175,16 @@ img
 }
 
 /* Flex items for large screens */
-@media only screen and (min-width: 1500px)
+@media only screen and (min-width: 1550px)
 {
+
+	body
+	{
+		background-image: url('assets/persistent Page.png');
+		background-size: 100% 100%;
+		margin: 0;
+	}
+
 	.col-lg-100
 	{
 		flex: 0 0 100%
