@@ -18,10 +18,20 @@ img
 	margin-bottom: -4px;
 }
 
-/* For the child elements inside the boxes */
 .content
 {
-	/* Offset the text away from the corners */
+	/* Spacing between flex-items */
+	padding-right: 20px;
+	padding-bottom: 20px;
+	/* "border-box" includes padding when calculating size, so the columns won't wrap unexpectedly */
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+}
+
+.content > div
+{
+	/* Spaces text away from box edges */
 	padding: 20px;
 }
 
@@ -42,10 +52,7 @@ img
 /* The screenshot of the Hammerhead in the center of the page */
 #hammerhead
 {
-	background-image: url('pic05a.jpg');
-	background-size: cover;
 	width: 100%;
-	height: 100%;
 }
 
 /* For flex containers */
@@ -114,7 +121,7 @@ img
 }
 
 /* Flex items for medium and larger screens */
-@media only screen and (min-width: 800px)
+@media only screen and (min-width: 1200px)
 {
 	.col-md-100
 	{
@@ -168,7 +175,7 @@ img
 }
 
 /* Flex items for large screens */
-@media only screen and (min-width: 1200px)
+@media only screen and (min-width: 1500px)
 {
 	.col-lg-100
 	{
@@ -228,7 +235,7 @@ img
 	/* Using background-image instead of an <img> element makes it easy to place text on top. */
 	background-image: url('assets/Button 1.png');
 	background-size: 100% 100%;
-	width: 290px;
+	width: 320px; /* Changed from 290. We should edit the images so their dimensions align. */
 	height: 147px;
 }
 
@@ -236,15 +243,16 @@ img
 {
 	background-image: url('assets/Button 2.png');
 	background-size: 100% 100%;
-	width: 885px;
+	width: 95%; /* 885 */
 	height: 81px;
+	text-align: center;
 }
 
 .box-3
 {
 	background-image: url('assets/Button 3.png');
 	background-size: 100% 100%;
-	width: 390px;
+	width: 320px; /* 390 */
 	height: 185px;
 }
 
@@ -252,7 +260,7 @@ img
 {
 	background-image: url('assets/Button 4.png');
 	background-size: 100% 100%;
-	width: 302px;
+	width: 320px; /* 302 */
 	height: 40px;
 }
 
@@ -260,7 +268,7 @@ img
 {
 	background-image: url('assets/Button 6.png');
 	background-size: 100% 100%;
-	width: 198px;
+	width: 320px; /* 198 */
 	height: 147px;
 }
 
@@ -268,7 +276,7 @@ img
 {
 	background-image: url('assets/Button 7.png');
 	background-size: 100% 100%;
-	width: 202px;
+	width: 320px; /* 202 */
 	height: 173px;
 }
 
@@ -276,6 +284,6 @@ img
 {
 	background-image: url('assets/Button 8.png');
 	background-size: 100% 100%;
-	width: 196px;
+	width: 320px; /* 196 */
 	height: 241px;
 }
