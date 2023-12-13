@@ -4,56 +4,65 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Star Citizen Organization Website">
-	<meta name="author" content="Varheel">
+	<meta name="author" content="SFIA">
 	<title>SFIA</title>
 	<link rel="icon" type="image/x-icon" href="logo.png">
 	<link rel="stylesheet" href="temp.css">
 </head>
+<!--
+	The layout system is similar to Bootstrap, but just the parts we need.
+	https://getbootstrap.com/docs/5.3/layout/grid/
+	It's based on flexbox. Here is a nice guide:
+	https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+	I'll delete most of these comments once we get past the initial stages of development.
+-->
 <body>
+	<!--
+		The page is broken into rows and columns. The rows are flex containers, and the columns are flex items.
+		At the root body element, there are three rows for the header, main content, and footer.
+	-->
 	<div class="row">
-		<div class="col-100">
-			Header
-		</div>
+		<!-- col-100 is not responsive and always takes up 100% of the container (row) width. -->
+		<div class="col-100">Header</div>
 	</div>
-	<div class="row" style="margin: 50px 200px 50px;">
+	<div id="main-content" class="row">
+		<!-- col-100 means the next "column" will wrap to a new line, though it will still be in the same "row" -->
 		<div class="col-100 box-2">
-			<h1 style="display: inline; vertical-align: top; font-family: BRAVE Eightyone Regular;">
-				Stanton Freelancers Initiative Alliance
-			</h1>
+			<h1 id="org-title">Stanton Freelancers Initiative Alliance</h1>
 		</div>
+		<!--
+			On medium or larger screens, this column will take up 2/3 of the container width.
+			Otherwise (on small screens) it takes up 100%.
+		-->
 		<div class="col-100 col-md-66">
+			<!-- A new container is nested inside. -->
 			<div class="row">
+				<!--
+					The widths of these columns will be based on the parent container, not the whole screen.
+					You can nest as many layers as you want, breaking the page into progressively smaller sections.
+					It could be broken up differently, but this is how I organized it.
+				-->
 				<div class="col-100 col-md-50">
 					<div class="row">
 						<div class="col-100 box-1">
 							<div class="content">B</div>
-							<img src="assets/Button 1.png" style="visibility: hidden;">
 						</div>
 						<div class="col-100 box-3">
 							<div class="content">C</div>
-							<img src="assets/Button 3.png" style="visibility: hidden;">
 						</div>
 						<div class="col-100 box-4">
 							<div class="content">D</div>
-							<img src="assets/Button 4.png" style="visibility: hidden;">
 						</div>
 						<div class="col-100 box-6">
 							<div class="content">E</div>
-							<img src="assets/Button 7.png" style="visibility: hidden;">
 						</div>
 					</div>
 				</div>
 				<div class="col-100 col-md-50">
-					<div style="
-						background-image: url('pic05a.jpg');
-						background-size: cover;
-						width: 100%;
-						height: 100%;">
-					</div>
+					<div id="hammerhead"></div>
 				</div>
 				<div class="col-100 box-4">
 					<div class="content">G</div>
-					<img src="assets/Button 4.png" style="visibility: hidden;">
 				</div>
 			</div>
 		</div>
@@ -61,22 +70,16 @@
 			<div class="row">
 				<div class="col-100 box-5">
 					<div class="content">H</div>
-					<img src="assets/Button 6.png" style="visibility: hidden;">
 				</div>
 				<div class="col-100 box-3">
 					<div class="content">I</div>
-					<img src="assets/Button 3.png" style="visibility: hidden;">
 				</div>
-				<div class="col-100 box-7">
-					<img src="assets/Button 8.png" style="visibility: hidden;">
-				</div>
+				<div class="col-100 box-7"></div>
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-100">
-			Footer
-		</div>
+		<div class="col-100">Footer</div>
 	</div>
 </body>
 </html>
