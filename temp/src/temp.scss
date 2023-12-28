@@ -66,7 +66,7 @@ img
 	width: 100%;
 }
 
-/* For flex containers */
+/* For flex containers */ 
 .row
 {
 	display: flex;
@@ -253,46 +253,37 @@ img
 
 /* Boxes / blocks / widgets */
 
+@mixin box($width, $height, $background-image) {
+    background-image: url($background-image);
+    background-size: 100% 100%;
+    width: $width;
+    height: $height;
+}
+
 .box-1
 {
-	/* Using background-image instead of an <img> element makes it easy to place text on top. */
-	background-image: url('assets/Button 1.png');
-	background-size: 100% 100%;
-	width: 320px; /* Changed from 290. We should edit the images so their dimensions align. */
-	height: 147px;
+	@include box(320px, 147px, 'assets/Button 1.png'); 
 }
 
 .box-2
 {
-	background-image: url('assets/Button 2.png');
-	background-size: 100% 100%;
-	width: 95%; /* 885 */
-	height: 81px; 
+	@include box(95%, 81px, 'assets/Button 2.png');
 	text-align:left;
 }
 
 .box-3
 {
-	background-image: url('assets/Button 3.png');
-	background-size: 100% 100%;
-	width: 320px; /* 390 */
-	height: 185px;
+	@include box(320px, 185px, 'assets/Button 3.png');
 }
 
 .box-4
 {
-	background-image: url('assets/Button 4.png');
-	background-size: 100% 100%;
-	width: 320px; /* 302 */
-	height: 40px;
+	@include box(320px, 40px, 'assets/Button 4.png');
 }
 
 .box-5
 {
-	background-image: url('assets/Button 6.png');
-	background-size: 100% 100%;
-	width: 320px; /* 198 */
-	height: 147px;/*
+	@include box(320px, 147px, 'assets/Button 6.png');/*
 		&.content
 		{
 			&.col-100
@@ -305,16 +296,10 @@ img
 
 .box-6
 {
-	background-image: url('assets/Button 7.png');
-	background-size: 100% 100%;
-	width: 320px; /* 202 */
-	height: 173px;
+	@include box(320px, 173px, 'assets/Button 7.png');
 }
 
 .box-7
 {
-	background-image: url('assets/Button 8.png');
-	background-size: 100% 100%;
-	width: 320px; /* 196 */
-	height: 241px;
+	@include box(320px, 241px, 'assets/Button 8.png');
 }

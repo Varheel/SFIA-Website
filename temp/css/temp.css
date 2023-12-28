@@ -187,17 +187,16 @@ img {
 }
 /* Boxes / blocks / widgets */
 .box-1 {
-  /* Using background-image instead of an <img> element makes it easy to place text on top. */
   background-image: url("assets/Button 1.png");
   background-size: 100% 100%;
-  width: 320px; /* Changed from 290. We should edit the images so their dimensions align. */
+  width: 320px;
   height: 147px;
 }
 
 .box-2 {
   background-image: url("assets/Button 2.png");
   background-size: 100% 100%;
-  width: 95%; /* 885 */
+  width: 95%;
   height: 81px;
   text-align: left;
 }
@@ -205,43 +204,44 @@ img {
 .box-3 {
   background-image: url("assets/Button 3.png");
   background-size: 100% 100%;
-  width: 320px; /* 390 */
+  width: 320px;
   height: 185px;
 }
 
 .box-4 {
   background-image: url("assets/Button 4.png");
   background-size: 100% 100%;
-  width: 320px; /* 302 */
+  width: 320px;
   height: 40px;
 }
 
 .box-5 {
   background-image: url("assets/Button 6.png");
   background-size: 100% 100%;
-  width: 320px; /* 198 */
-  height: 147px; /*
-&.content
-{
-	&.col-100
-	{
+  width: 320px;
+  height: 147px;
+  /*
+  &.content
+  {
+  	&.col-100
+  	{
 
-		height: calc(col-md-33*0.5);
-	}
-}*/
+  		height: calc(col-md-33*0.5);
+  	}
+  }*/
 }
 
 .box-6 {
   background-image: url("assets/Button 7.png");
   background-size: 100% 100%;
-  width: 320px; /* 202 */
+  width: 320px;
   height: 173px;
 }
 
 .box-7 {
   background-image: url("assets/Button 8.png");
   background-size: 100% 100%;
-  width: 320px; /* 196 */
+  width: 320px;
   height: 241px;
 }
 
