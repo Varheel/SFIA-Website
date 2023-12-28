@@ -64,53 +64,46 @@ img {
   justify-content: center;
 }
 
-/* Flex item definitions (non-responsive) */
-.col-100 {
-  /*
-  	"flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  	We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  	The columns are a fixed percentage of the container width.
-  */
-  flex: 0 0 100%;
-}
-
-.col-80 {
-  flex: 0 0 80%;
-}
-
-.col-75 {
-  flex: 0 0 75%;
-}
-
-.col-66 {
-  flex: 0 0 66%;
-}
-
-.col-60 {
-  flex: 0 0 60%;
-}
-
-.col-50 {
-  flex: 0 0 50%;
-}
-
-.col-40 {
-  flex: 0 0 40%;
-}
-
-.col-33 {
-  flex: 0 0 33%;
+.col-20 {
+  flex: 0 0 20%;
 }
 
 .col-25 {
   flex: 0 0 25%;
 }
 
-.col-20 {
-  flex: 0 0 20%;
+.col-33 {
+  flex: 0 0 33%;
 }
 
-/* Flex items for medium and larger screens */
+.col-40 {
+  flex: 0 0 40%;
+}
+
+.col-50 {
+  flex: 0 0 50%;
+}
+
+.col-60 {
+  flex: 0 0 60%;
+}
+
+.col-66 {
+  flex: 0 0 66%;
+}
+
+.col-75 {
+  flex: 0 0 75%;
+}
+
+.col-80 {
+  flex: 0 0 80%;
+}
+
+.col-100 {
+  flex: 0 0 100%;
+}
+
 @media only screen and (min-width: 1025px) {
   body {
     background-image: url("assets/persistent Page.png");
@@ -119,70 +112,67 @@ img {
     width: 100vw;
     height: 100vh;
   }
-  .col-md-100 {
-    flex: 0 0 100%;
-  }
-  .col-md-80 {
-    flex: 0 0 80%;
-  }
-  .col-md-75 {
-    flex: 0 0 75%;
-  }
-  .col-md-66 {
-    flex: 0 0 66%;
-    /*height: calc(83vh*0.9);*/
-  }
-  .col-md-60 {
-    flex: 0 0 60%;
-  }
-  .col-md-50 {
-    flex: 0 0 50%;
-  }
-  .col-md-40 {
-    flex: 0 0 40%;
-  }
-  .col-md-33 {
-    flex: 0 0 33%;
-    /*height: $md-33-height;*/
+  .col-md-20 {
+    flex: 0 0 20%;
   }
   .col-md-25 {
     flex: 0 0 25%;
   }
-  .col-md-20 {
-    flex: 0 0 20%;
+  .col-md-33 {
+    flex: 0 0 33%;
   }
-}
-/* Flex items for large screens */
-@media only screen and (min-width: 1550px) {
-  .col-lg-100 {
-    flex: 0 0 100%;
-  }
-  .col-lg-80 {
-    flex: 0 0 80%;
-  }
-  .col-lg-75 {
-    flex: 0 0 75%;
-  }
-  .col-lg-66 {
-    flex: 0 0 66%;
-  }
-  .col-lg-60 {
-    flex: 0 0 60%;
-  }
-  .col-lg-50 {
-    flex: 0 0 50%;
-  }
-  .col-lg-40 {
+  .col-md-40 {
     flex: 0 0 40%;
   }
-  .col-lg-33 {
-    flex: 0 0 33%;
+  .col-md-50 {
+    flex: 0 0 50%;
+  }
+  .col-md-60 {
+    flex: 0 0 60%;
+  }
+  .col-md-66 {
+    flex: 0 0 66%;
+  }
+  .col-md-75 {
+    flex: 0 0 75%;
+  }
+  .col-md-80 {
+    flex: 0 0 80%;
+  }
+  .col-md-100 {
+    flex: 0 0 100%;
+  }
+}
+@media only screen and (min-width: 1550px) {
+  .col-lg-20 {
+    flex: 0 0 20%;
   }
   .col-lg-25 {
     flex: 0 0 25%;
   }
-  .col-lg-20 {
-    flex: 0 0 20%;
+  .col-lg-33 {
+    flex: 0 0 33%;
+  }
+  .col-lg-40 {
+    flex: 0 0 40%;
+  }
+  .col-lg-50 {
+    flex: 0 0 50%;
+  }
+  .col-lg-60 {
+    flex: 0 0 60%;
+  }
+  .col-lg-66 {
+    flex: 0 0 66%;
+  }
+  .col-lg-75 {
+    flex: 0 0 75%;
+  }
+  .col-lg-80 {
+    flex: 0 0 80%;
+  }
+  .col-lg-100 {
+    flex: 0 0 100%;
   }
 }
 /* Boxes / blocks / widgets */
