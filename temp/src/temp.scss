@@ -1,9 +1,15 @@
+/* variables */
+/*$md-33-height: calc(83vh*0.9);
+
+/* body */
 body
 {
 	background-image: url('assets/mblBG.png');
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	margin: 0;
+	width: 100vw;
+	height: 100%;
 }
 
 @font-face 
@@ -21,8 +27,10 @@ img
 .content
 {
 	/* Spacing between flex-items */
-	padding-right: 20px;
+	/*padding-right: 20px;
 	padding-bottom: 20px;
+        did this so the boxes will be centered  within flex lines */
+	padding: 10px;
 	/* "border-box" includes padding when calculating size, so the columns won't wrap unexpectedly */
 	box-sizing: border-box;
 	width: 100%;
@@ -39,7 +47,9 @@ img
 /* The main container for boxes */
 #main-content
 {
-	margin: 120px 220px 50px 250px;
+	margin: 0 15vw;
+	/*height: 83vh; 
+		/*.col-100{height: 10%}*/
 }
 
 /* Our org name as a header in the first box */
@@ -47,6 +57,7 @@ img
 {
 	font-family: BRAVE Eightyone Regular;
 	margin: 0;
+	font-size:large;
 }
 
 /* The screenshot of the Hammerhead in the center of the page */
@@ -72,7 +83,7 @@ img
 		We don't need the flex items to grow to fill the container, or shrink to fit inside it.
 		The columns are a fixed percentage of the container width.
 	*/
-	flex: 0 0 100%
+	flex: 0 0 100%;
 }
 
 .col-80
@@ -121,8 +132,17 @@ img
 }
 
 /* Flex items for medium and larger screens */
-@media only screen and (min-width: 1200px)
+@media only screen and (min-width: 1025px)
 {
+	body
+	{
+		background-image: url('assets/persistent Page.png');
+		background-size: 100% 100%;
+		margin: 0;
+		width: 100vw;
+		height: 100vh;
+	}
+
 	.col-md-100
 	{
 		flex: 0 0 100%
@@ -140,7 +160,8 @@ img
 	
 	.col-md-66
 	{
-		flex: 0 0 66%
+		flex: 0 0 66%;
+		/*height: calc(83vh*0.9);*/
 	}
 	
 	.col-md-60
@@ -160,7 +181,8 @@ img
 	
 	.col-md-33
 	{
-		flex: 0 0 33%
+		flex: 0 0 33%;
+		/*height: $md-33-height;*/
 	}
 	
 	.col-md-25
@@ -177,13 +199,6 @@ img
 /* Flex items for large screens */
 @media only screen and (min-width: 1550px)
 {
-
-	body
-	{
-		background-image: url('assets/persistent Page.png');
-		background-size: 100% 100%;
-		margin: 0;
-	}
 
 	.col-lg-100
 	{
@@ -252,8 +267,8 @@ img
 	background-image: url('assets/Button 2.png');
 	background-size: 100% 100%;
 	width: 95%; /* 885 */
-	height: 81px;
-	text-align: center;
+	height: 81px; 
+	text-align:left;
 }
 
 .box-3
@@ -277,7 +292,15 @@ img
 	background-image: url('assets/Button 6.png');
 	background-size: 100% 100%;
 	width: 320px; /* 198 */
-	height: 147px;
+	height: 147px;/*
+		&.content
+		{
+			&.col-100
+			{
+				
+				height: calc(col-md-33*0.5);
+			}
+		}*/
 }
 
 .box-6

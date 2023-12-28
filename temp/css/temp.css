@@ -1,0 +1,248 @@
+/* variables */
+/*$md-33-height: calc(83vh*0.9);
+
+/* body */
+body {
+  background-image: url("assets/mblBG.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: 0;
+  width: 100vw;
+  height: 100%;
+}
+
+@font-face {
+  font-family: "BRAVE Eightyone Regular";
+  src: url(fonts/BraveEightyoneRegular-ZVGvm.ttf) format("truetype");
+}
+img {
+  /* Images have an extra 4 pixels on the bottom for some reason, at least on my browser. This counteracts that. */
+  margin-bottom: -4px;
+}
+
+.content {
+  /* Spacing between flex-items */
+  /*padding-right: 20px;
+  padding-bottom: 20px;
+         did this so the boxes will be centered  within flex lines */
+  padding: 10px;
+  /* "border-box" includes padding when calculating size, so the columns won't wrap unexpectedly */
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.content > div {
+  /* Spaces text away from box edges */
+  padding: 20px;
+  width: initial;
+}
+
+/* The main container for boxes */
+#main-content {
+  margin: 0 15vw;
+  /*height: 83vh; 
+  	/*.col-100{height: 10%}*/
+}
+
+/* Our org name as a header in the first box */
+#org-title {
+  font-family: BRAVE Eightyone Regular;
+  margin: 0;
+  font-size: large;
+}
+
+/* The screenshot of the Hammerhead in the center of the page */
+#hammerhead {
+  width: 100%;
+}
+
+/* For flex containers */
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+/* Flex item definitions (non-responsive) */
+.col-100 {
+  /*
+  	"flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  	We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  	The columns are a fixed percentage of the container width.
+  */
+  flex: 0 0 100%;
+}
+
+.col-80 {
+  flex: 0 0 80%;
+}
+
+.col-75 {
+  flex: 0 0 75%;
+}
+
+.col-66 {
+  flex: 0 0 66%;
+}
+
+.col-60 {
+  flex: 0 0 60%;
+}
+
+.col-50 {
+  flex: 0 0 50%;
+}
+
+.col-40 {
+  flex: 0 0 40%;
+}
+
+.col-33 {
+  flex: 0 0 33%;
+}
+
+.col-25 {
+  flex: 0 0 25%;
+}
+
+.col-20 {
+  flex: 0 0 20%;
+}
+
+/* Flex items for medium and larger screens */
+@media only screen and (min-width: 1025px) {
+  body {
+    background-image: url("assets/persistent Page.png");
+    background-size: 100% 100%;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  .col-md-100 {
+    flex: 0 0 100%;
+  }
+  .col-md-80 {
+    flex: 0 0 80%;
+  }
+  .col-md-75 {
+    flex: 0 0 75%;
+  }
+  .col-md-66 {
+    flex: 0 0 66%;
+    /*height: calc(83vh*0.9);*/
+  }
+  .col-md-60 {
+    flex: 0 0 60%;
+  }
+  .col-md-50 {
+    flex: 0 0 50%;
+  }
+  .col-md-40 {
+    flex: 0 0 40%;
+  }
+  .col-md-33 {
+    flex: 0 0 33%;
+    /*height: $md-33-height;*/
+  }
+  .col-md-25 {
+    flex: 0 0 25%;
+  }
+  .col-md-20 {
+    flex: 0 0 20%;
+  }
+}
+/* Flex items for large screens */
+@media only screen and (min-width: 1550px) {
+  .col-lg-100 {
+    flex: 0 0 100%;
+  }
+  .col-lg-80 {
+    flex: 0 0 80%;
+  }
+  .col-lg-75 {
+    flex: 0 0 75%;
+  }
+  .col-lg-66 {
+    flex: 0 0 66%;
+  }
+  .col-lg-60 {
+    flex: 0 0 60%;
+  }
+  .col-lg-50 {
+    flex: 0 0 50%;
+  }
+  .col-lg-40 {
+    flex: 0 0 40%;
+  }
+  .col-lg-33 {
+    flex: 0 0 33%;
+  }
+  .col-lg-25 {
+    flex: 0 0 25%;
+  }
+  .col-lg-20 {
+    flex: 0 0 20%;
+  }
+}
+/* Boxes / blocks / widgets */
+.box-1 {
+  /* Using background-image instead of an <img> element makes it easy to place text on top. */
+  background-image: url("assets/Button 1.png");
+  background-size: 100% 100%;
+  width: 320px; /* Changed from 290. We should edit the images so their dimensions align. */
+  height: 147px;
+}
+
+.box-2 {
+  background-image: url("assets/Button 2.png");
+  background-size: 100% 100%;
+  width: 95%; /* 885 */
+  height: 81px;
+  text-align: left;
+}
+
+.box-3 {
+  background-image: url("assets/Button 3.png");
+  background-size: 100% 100%;
+  width: 320px; /* 390 */
+  height: 185px;
+}
+
+.box-4 {
+  background-image: url("assets/Button 4.png");
+  background-size: 100% 100%;
+  width: 320px; /* 302 */
+  height: 40px;
+}
+
+.box-5 {
+  background-image: url("assets/Button 6.png");
+  background-size: 100% 100%;
+  width: 320px; /* 198 */
+  height: 147px; /*
+&.content
+{
+	&.col-100
+	{
+
+		height: calc(col-md-33*0.5);
+	}
+}*/
+}
+
+.box-6 {
+  background-image: url("assets/Button 7.png");
+  background-size: 100% 100%;
+  width: 320px; /* 202 */
+  height: 173px;
+}
+
+.box-7 {
+  background-image: url("assets/Button 8.png");
+  background-size: 100% 100%;
+  width: 320px; /* 196 */
+  height: 241px;
+}
+
+/*# sourceMappingURL=temp.css.map */
