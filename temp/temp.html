@@ -6,7 +6,7 @@
 	<meta name="description" content="Star Citizen Organization Website">
 	<meta name="author" content="SFIA">
 	<title>SFIA</title>
-	<link rel="icon" type="image/x-icon" href="css/assets/logo.png">
+	<link rel="icon" type="image/x-icon" href="css/webp/1080p/logo 1080.webp">
 	<link rel="stylesheet" href="css/temp.css">
 </head>
 <!--
@@ -24,85 +24,91 @@
 	<div class="row">
 		<!-- col-100 is not responsive and always takes up 100% of the container (row) width. -->
 		<div class="col-100">
-			<div class="content">Header</div>
+			<div id="header" class="content">Header</div>
 		</div>
 	</div>
 	<div id="main-content" class="row">
-		<!-- col-100 means the next "column" will wrap to a new line, though it will still be in the same "row" -->
-		<div class="col-100">
-			<div class="content">
-				<div class="box-2">
-					<h1 id="org-title">Stanton Freelancers Initiative Alliance</h1>
-				</div>
-			</div>
-		</div>
-		<!--
-			On medium or larger screens, this column will take up 2/3 of the container width.
-			Otherwise (on small screens) it takes up 100%.
-		-->
-		<div class="col-100 col-md-66">
-			<!-- A new container is nested inside. -->
+		<!-- sidebar-left -->
+		<div class="col-md-15 col-lg-15"></div>
+		<div class="col-md-70 col-lg-70">
 			<div class="row">
+				<!-- col-100 means the next "column" will wrap to a new line, though it will still be in the same "row" -->
+				<div class="col-100">
+					<div class="content">
+						<div class="box-2">
+							<h1 id="org-title">Stanton Freelancers Initiative Alliance</h1>
+						</div>
+					</div>
+				</div>
 				<!--
-					The widths of these columns will be based on the parent container, not the whole screen.
-					You can nest as many layers as you want, breaking the page into progressively smaller sections.
-					It could be broken up differently, but this is how I organized it.
+					On medium or larger screens, this column will take up 2/3 of the container width.
+					Otherwise (on small screens) it takes up 100%.
 				-->
-				<div class="col-100 col-md-50">
+				<div class="col-100 col-md-66 col-lg-66">
+					<!-- A new container is nested inside. -->
+					<div class="row">
+						<!--
+							The widths of these columns will be based on the parent container, not the whole screen.
+							You can nest as many layers as you want, breaking the page into progressively smaller sections.
+							It could be broken up differently, but this is how I organized it.
+						-->
+						<div class="col-100 col-md-50 col-lg-50">
+							<div class="row">
+								<div class="col-100">
+									<div class="content">
+										<div class="box-1" style="color: white">1</div>
+									</div>
+								</div>
+								<div class="col-100">
+									<div class="content">
+										<div class="box-3">3</div>
+									</div>
+								</div>
+								<div class="col-100">
+									<div class="content">
+										<div class="box-6">6</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-100 col-md-50 col-lg-50">
+							<div class="content">
+								<img id="hammerhead" src="css/webp/1080p/hammerhead 1080.webp">
+							</div>
+						</div>
+						<div class="col-100">
+							<div class="content">
+								<div class="box-4">4</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-100 col-md-33 col-lg-33">
 					<div class="row">
 						<div class="col-100">
 							<div class="content">
-								<div class="box-1" style="color: white">1</div>
+								<div class="box-5" style="color: white">5</div>
 							</div>
 						</div>
 						<div class="col-100">
 							<div class="content">
-								<div class="box-3">3</div>
+								<div class="box-4">4</div>
 							</div>
 						</div>
-						
 						<div class="col-100">
 							<div class="content">
-								<div class="box-6">6</div>
+								<div class="box-7" style="color: white">7</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-100 col-md-50">
-					<div class="content">
-						<img id="hammerhead" src="css/assets/pic05a.jpg">
-					</div>
-				</div>
-				<div class="col-100">
-					<div class="content">
-						<div class="box-4">4</div>
-					</div>
-				</div>
 			</div>
 		</div>
-		<div class="col-100 col-md-33">
-			<div class="row">
-				<div class="col-100">
-					<div class="content">
-						<div class="box-5" style="color: white">5</div>
-					</div>
-				</div>
-				<div class="col-100">
-					<div class="content">
-						<div class="box-4">4</div>
-					</div>
-				</div>
-				<div class="col-100">
-					<div class="content">
-						<div class="box-7" style="color: white">7</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="col-15 col-md-15 col-lg-15"></div>
 	</div>
 	<div class="row">
 		<div class="col-100">
-			<div class="content">Footer</div>
+			<div id="footer" class="content">Footer</div>
 		</div>
 	</div>
 <script src="js/temp.js"></script>

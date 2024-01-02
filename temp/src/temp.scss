@@ -1,37 +1,30 @@
-/* variables */
-/*$md-33-height: calc(83vh*0.9);
+/*
 
-/* body */
-body
+SASS COMMAND:
+sass --watch temp/src/temp.scss:temp/css/temp.css
+
+*/
+html, body
 {
-	background-image: url('assets/mblBG.png');
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
 	margin: 0;
-	width: 100vw;
+	width: 100%;
 	height: 100%;
 }
 
-@font-face 
+@font-face
 {
 	font-family: 'BRAVE Eightyone Regular';
 	src: url(fonts/BraveEightyoneRegular-ZVGvm.ttf) format('truetype')
 }
 
-img
-{
-	/* Images have an extra 4 pixels on the bottom for some reason, at least on my browser. This counteracts that. */
-	margin-bottom: -4px;
-}
-
 .content
 {
-	/* Spacing between flex-items */
-	/*padding-right: 20px;
-	padding-bottom: 20px;
-        did this so the boxes will be centered  within flex lines */
+	// Spacing between flex-items
 	padding: 10px;
-	/* "border-box" includes padding when calculating size, so the columns won't wrap unexpectedly */
+	/* 
+		"border-box" includes padding when calculating size, 
+		so the columns won't wrap unexpectedly
+	*/
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
@@ -39,34 +32,16 @@ img
 
 .content > div
 {
-	/* Spaces text away from box edges */
-	padding: 20px;
-	width: initial;
+	// Spaces text away from box edges
+	padding: 10px;
 }
 
-/* The main container for boxes */
-#main-content
-{
-	margin: 0 15vw;
-	/*height: 83vh; 
-		/*.col-100{height: 10%}*/
-}
-
-/* Our org name as a header in the first box */
-#org-title
-{
-	font-family: BRAVE Eightyone Regular;
-	margin: 0;
-	font-size:large;
-}
-
-/* The screenshot of the Hammerhead in the center of the page */
 #hammerhead
 {
 	width: 100%;
 }
 
-/* For flex containers */ 
+// For flex containers
 .row
 {
 	display: flex;
@@ -74,103 +49,214 @@ img
 	justify-content: center;
 }
 
+/*
+	CHANGE: the percent value for $size is now calculated in the
+	flex item definition. Also added 15 for sidebars, and 70
+	for main-content container.
+*/
 // Widths for flex columns
-$sizes: (20: 20%, 25: 25%, 33: 33%, 40: 40%, 50: 50%, 60: 60%, 66: 66%, 75: 75%, 80: 80%, 100: 100%);
+$sizes: (15, 20, 25, 33, 40, 50, 60, 66, 70, 75, 80, 100);
 
-// Flex item definitions (default / small screens)
-@each $size, $percent in $sizes
+// Flex item definitions (default / small screens)  
+@each $size in $sizes
 {
 	.col-#{$size}
 	{
-		//"flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-		// We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-		// The columns are a fixed percentage of the container width.
-		flex: 0 0 $percent;
+	/*
+	"flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+	We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+	The columns are a fixed percentage of the container width.
+	*/
+		flex: 0 0 percentage($size * 0.01);
 	}
 }
 
-@media only screen and (min-width: 1025px)
+/* ============== SMALL SCREENS ================== */  
+
+@media only screen and (max-width: 1025px)
 {
-	body
+	#org-title
 	{
-		background-image: url('assets/persistent Page.png');
-		background-size: 100% 100%;
-		margin: 0;
-		width: 100vw;
-		height: 100vh;
+	font-family: BRAVE Eightyone Regular;
+	font-size: 20px;
 	}
 
-	// Flex items for medium and larger screens
-	@each $size, $percent in $sizes
+	#header.content
+	{
+		// sets background image of header for mobile
+		background-image: url('webp/mobile/mblHDR.webp');
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	#main-content
+	{
+		// sets bckground image for main-content for mobile
+		background-image: url('webp/mobile/mblMC.webp');
+		background-size: 100% 100%;
+		background-position: center;
+	}/*
+
+		the footer for mobile devices will probably be different than
+		the image i've been using for the desktop footer. it
+		will probably be taller.
+
+	 */
+}
+
+
+/* ================ MEDIUM SCREENS ================== */
+
+@media only screen and (min-width: 1026px) and (max-width: 2559px)
+{
+	// Flex items for medium screens 
+	@each $size in $sizes
 	{
 		.col-md-#{$size}
 		{
-			flex: 0 0 $percent;
+			flex: 0 0 percentage($size * 0.01);
 		}
+	}
+	
+	#org-title
+	{
+		font-family: BRAVE Eightyone Regular;
+		font-size: 24px;
+	}
+
+	#header.content
+	{
+		// sets background image of 1080p header
+		background-image: url('webp/1080p/1080HDR.webp');
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 124px;// 11vh
+	}
+	#main-content
+	{
+		// sets bckground image for 1080p main-content
+		background-image: url('webp/1080p/1080MC.webp');
+		background-size: 100% 100%;
+		background-position: center;
+		height: 913px;// 85vh
+	}
+
+	#footer.content
+	{
+		// sets background image of footer
+		background-image: url('webp/1080p/1080FTR.webp');
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 43px;// 4vh
 	}
 }
 
-@media only screen and (min-width: 1550px)
+@media only screen and (min-width: 2560px)
 {
+	body
+	{
+		// this is set for the 'em' units for the boxes
+		font-size: 32px;
+	}
+	
+	#org-title
+	{
+		font-family: BRAVE Eightyone Regular;
+		font-size: 48px;
+	}	
+
 	// Flex items for large screens
-	@each $size, $percent in $sizes
+	@each $size in $sizes
 	{
 		.col-lg-#{$size}
 		{
-			flex: 0 0 $percent;
+			flex: 0 0 percentage($size * 0.01);
 		}
+	}
+
+	#header.content
+	{
+		// sets background image of header
+		background-image: url('webp/4K/4kHDR.webp');
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 248px;
+	}
+	#main-content
+	{
+		// sets bckground image for everything between header and footer 
+		background-image: url('webp/4K/4kMC.webp');
+		background-size: 100% 100%;
+		background-position: center;
+		width: 100%;
+		height: 1826px;
+	}
+
+	#footer.content
+	{
+		// sets background image of footer
+		background-image: url('webp/4K/4kFTR.webp');
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 86px;
 	}
 }
 
-/* Boxes / blocks / widgets */
+/* =============== Boxes / blocks / widgets =============== */
+/*
+ Currently working on a javascript solution to change
+ the background image for the boxes based on device width. Could
+ just put the mixins in each media query with different file paths,
+ but I don't wanna pollute the css further. 
+*/
 
 @mixin box($width, $height, $background-image) {
     background-image: url($background-image);
     background-size: 100% 100%;
     width: $width;
     height: $height;
+	box-sizing: border-box;
 }
-
+// em is a unit based on font size of the parent container ICYDK
 .box-1
 {
-	@include box(320px, 147px, 'assets/Button 1.png'); 
+	@include box(100%, 12.5em, 'webp/1080p/Button 1 1080.webp');
 }
 
 .box-2
 {
-	@include box(95%, 81px, 'assets/Button 2.png');
-	text-align:left;
+	@include box(100%, 7em, 'webp/1080p/Button 2 1080.webp');
 }
 
 .box-3
 {
-	@include box(320px, 185px, 'assets/Button 3.png');
+	@include box(100%, 12.5em, 'webp/1080p/Button 3 1080.webp');
 }
 
 .box-4
 {
-	@include box(320px, 40px, 'assets/Button 4.png');
+	@include box(100%, 5em, 'webp/1080p/Button 4 1080.webp');
 }
 
 .box-5
 {
-	@include box(320px, 147px, 'assets/Button 6.png');/*
-		&.content
-		{
-			&.col-100
-			{
-				
-				height: calc(col-md-33*0.5);
-			}
-		}*/
+	@include box(100%, 12.5em, 'webp/1080p/Button 6 1080.webp');
 }
 
 .box-6
 {
-	@include box(320px, 173px, 'assets/Button 7.png');
+	@include box(100%, 12.5em, 'webp/1080p/Button 7 1080.webp');
 }
 
 .box-7
 {
-	@include box(320px, 241px, 'assets/Button 8.png');
+	@include box(100%, 26em, 'webp/1080p/Button 8 1080.webp');
 }

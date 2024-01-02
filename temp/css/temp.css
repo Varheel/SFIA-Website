@@ -1,13 +1,12 @@
-/* variables */
-/*$md-33-height: calc(83vh*0.9);
+/*
 
-/* body */
-body {
-  background-image: url("assets/mblBG.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+SASS COMMAND:
+sass --watch temp/src/temp.scss:temp/css/temp.css
+
+*/
+html, body {
   margin: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
 }
 
@@ -15,102 +14,172 @@ body {
   font-family: "BRAVE Eightyone Regular";
   src: url(fonts/BraveEightyoneRegular-ZVGvm.ttf) format("truetype");
 }
-img {
-  /* Images have an extra 4 pixels on the bottom for some reason, at least on my browser. This counteracts that. */
-  margin-bottom: -4px;
-}
-
 .content {
-  /* Spacing between flex-items */
-  /*padding-right: 20px;
-  padding-bottom: 20px;
-         did this so the boxes will be centered  within flex lines */
   padding: 10px;
-  /* "border-box" includes padding when calculating size, so the columns won't wrap unexpectedly */
+  /* 
+  	"border-box" includes padding when calculating size, 
+  	so the columns won't wrap unexpectedly
+  */
   box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
 
 .content > div {
-  /* Spaces text away from box edges */
-  padding: 20px;
-  width: initial;
+  padding: 10px;
 }
 
-/* The main container for boxes */
-#main-content {
-  margin: 0 15vw;
-  /*height: 83vh; 
-  	/*.col-100{height: 10%}*/
-}
-
-/* Our org name as a header in the first box */
-#org-title {
-  font-family: BRAVE Eightyone Regular;
-  margin: 0;
-  font-size: large;
-}
-
-/* The screenshot of the Hammerhead in the center of the page */
 #hammerhead {
   width: 100%;
 }
 
-/* For flex containers */
 .row {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
 
+/*
+	CHANGE: the percent value for $size is now calculated in the
+	flex item definition. Also added 15 for sidebars, and 70
+	for main-content container.
+*/
+.col-15 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
+  flex: 0 0 15%;
+}
+
 .col-20 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 20%;
 }
 
 .col-25 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 25%;
 }
 
 .col-33 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 33%;
 }
 
 .col-40 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 40%;
 }
 
 .col-50 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 50%;
 }
 
 .col-60 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 60%;
 }
 
 .col-66 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 66%;
 }
 
+.col-70 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
+  flex: 0 0 70%;
+}
+
 .col-75 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 75%;
 }
 
 .col-80 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 80%;
 }
 
 .col-100 {
+  /*
+  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
+  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
+  The columns are a fixed percentage of the container width.
+  */
   flex: 0 0 100%;
 }
 
-@media only screen and (min-width: 1025px) {
-  body {
-    background-image: url("assets/persistent Page.png");
+/* ============== SMALL SCREENS ================== */
+@media only screen and (max-width: 1025px) {
+  #org-title {
+    font-family: BRAVE Eightyone Regular;
+    font-size: 20px;
+  }
+  #header.content {
+    background-image: url("webp/mobile/mblHDR.webp");
     background-size: 100% 100%;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #main-content {
+    background-image: url("webp/mobile/mblMC.webp");
+    background-size: 100% 100%;
+    background-position: center;
+  } /*
+
+the footer for mobile devices will probably be different than
+the image i've been using for the desktop footer. it
+will probably be taller.
+
+*/
+}
+/* ================ MEDIUM SCREENS ================== */
+@media only screen and (min-width: 1026px) and (max-width: 2559px) {
+  .col-md-15 {
+    flex: 0 0 15%;
   }
   .col-md-20 {
     flex: 0 0 20%;
@@ -133,6 +202,9 @@ img {
   .col-md-66 {
     flex: 0 0 66%;
   }
+  .col-md-70 {
+    flex: 0 0 70%;
+  }
   .col-md-75 {
     flex: 0 0 75%;
   }
@@ -142,8 +214,44 @@ img {
   .col-md-100 {
     flex: 0 0 100%;
   }
+  #org-title {
+    font-family: BRAVE Eightyone Regular;
+    font-size: 24px;
+  }
+  #header.content {
+    background-image: url("webp/1080p/1080HDR.webp");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 124px;
+  }
+  #main-content {
+    background-image: url("webp/1080p/1080MC.webp");
+    background-size: 100% 100%;
+    background-position: center;
+    height: 913px;
+  }
+  #footer.content {
+    background-image: url("webp/1080p/1080FTR.webp");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 43px;
+  }
 }
-@media only screen and (min-width: 1550px) {
+@media only screen and (min-width: 2560px) {
+  body {
+    font-size: 32px;
+  }
+  #org-title {
+    font-family: BRAVE Eightyone Regular;
+    font-size: 48px;
+  }
+  .col-lg-15 {
+    flex: 0 0 15%;
+  }
   .col-lg-20 {
     flex: 0 0 20%;
   }
@@ -165,6 +273,9 @@ img {
   .col-lg-66 {
     flex: 0 0 66%;
   }
+  .col-lg-70 {
+    flex: 0 0 70%;
+  }
   .col-lg-75 {
     flex: 0 0 75%;
   }
@@ -174,65 +285,91 @@ img {
   .col-lg-100 {
     flex: 0 0 100%;
   }
+  #header.content {
+    background-image: url("webp/4K/4kHDR.webp");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 248px;
+  }
+  #main-content {
+    background-image: url("webp/4K/4kMC.webp");
+    background-size: 100% 100%;
+    background-position: center;
+    width: 100%;
+    height: 1826px;
+  }
+  #footer.content {
+    background-image: url("webp/4K/4kFTR.webp");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 86px;
+  }
 }
-/* Boxes / blocks / widgets */
+/* =============== Boxes / blocks / widgets =============== */
+/*
+ Currently working on a javascript solution to change
+ the background image for the boxes based on device width. Could
+ just put the mixins in each media query with different file paths,
+ but I don't wanna pollute the css further. 
+*/
 .box-1 {
-  background-image: url("assets/Button 1.png");
+  background-image: url("webp/1080p/Button 1 1080.webp");
   background-size: 100% 100%;
-  width: 320px;
-  height: 147px;
+  width: 100%;
+  height: 12.5em;
+  box-sizing: border-box;
 }
 
 .box-2 {
-  background-image: url("assets/Button 2.png");
+  background-image: url("webp/1080p/Button 2 1080.webp");
   background-size: 100% 100%;
-  width: 95%;
-  height: 81px;
-  text-align: left;
+  width: 100%;
+  height: 7em;
+  box-sizing: border-box;
 }
 
 .box-3 {
-  background-image: url("assets/Button 3.png");
+  background-image: url("webp/1080p/Button 3 1080.webp");
   background-size: 100% 100%;
-  width: 320px;
-  height: 185px;
+  width: 100%;
+  height: 12.5em;
+  box-sizing: border-box;
 }
 
 .box-4 {
-  background-image: url("assets/Button 4.png");
+  background-image: url("webp/1080p/Button 4 1080.webp");
   background-size: 100% 100%;
-  width: 320px;
-  height: 40px;
+  width: 100%;
+  height: 5em;
+  box-sizing: border-box;
 }
 
 .box-5 {
-  background-image: url("assets/Button 6.png");
+  background-image: url("webp/1080p/Button 6 1080.webp");
   background-size: 100% 100%;
-  width: 320px;
-  height: 147px;
-  /*
-  &.content
-  {
-  	&.col-100
-  	{
-
-  		height: calc(col-md-33*0.5);
-  	}
-  }*/
+  width: 100%;
+  height: 12.5em;
+  box-sizing: border-box;
 }
 
 .box-6 {
-  background-image: url("assets/Button 7.png");
+  background-image: url("webp/1080p/Button 7 1080.webp");
   background-size: 100% 100%;
-  width: 320px;
-  height: 173px;
+  width: 100%;
+  height: 12.5em;
+  box-sizing: border-box;
 }
 
 .box-7 {
-  background-image: url("assets/Button 8.png");
+  background-image: url("webp/1080p/Button 8 1080.webp");
   background-size: 100% 100%;
-  width: 320px;
-  height: 241px;
+  width: 100%;
+  height: 26em;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=temp.css.map */
