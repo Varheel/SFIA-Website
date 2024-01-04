@@ -1,7 +1,28 @@
 console.log("JavaScript is connected!");
 
-/*// Function to update image resolution
-function updateRes() {
+// Function to update image resolution
+/*function updateRes() 
+{
+    // Function to check if an image exists
+    function checkImage(src) 
+    {
+        return new Promise((resolve) => 
+        {
+            var img = new Image();
+            img.onload = () => resolve({ src, status: true });
+            img.onerror = () => resolve({ src, status: false });
+            img.src = src;
+        });
+    }
+
+    // Update function for img elements
+    async function updateImageSrc(element, newSrc) {
+        const result = await checkImage(newSrc);
+        if (result.status) {
+            element.src = newSrc;
+        }
+    }
+
     var resolution = window.screen.width;
 
     // Select all elements with background-image
@@ -17,39 +38,31 @@ function updateRes() {
         if (resolution >= 3840) 
         {
             // Replace 1080p image URL with 4K image URL
-            var newImageURL = currImageURL.replace('').replace('.png', ' 4k.webp');
-        } 
-        else 
-        {
-            // Replace 4K image URL with 1080p image URL
-            var newImageURL = currImageURL.replace('-4k.webp', '.webp');
+            var newImageURL = currImageURL.replace('webp/1080p', 'webp/4K').replace('1080.webp', '4k.webp');
         }
 
         // Update background image URL
         element.style.backgroundImage = newImageURL;
     });
     
-    // Select the specific img element
-    var hammerhead = document.getElementById('hammerhead');
-    if (hammerhead) {
-        var currImageURL = hammerhead.src;
+    // Handle the specific img element
+    var imgElement = document.getElementById('hammerhead');
+    if (imgElement) {
+        var currImageURL = imgElement.src;
+        var newImageURL;
 
-        // Update the image URL based on the resolution
         if (resolution >= 3840) {
-            // Replace 1080p or standard image URL with 4K image URL
-            var newImageURL = currImageURL.replace('.jpg', ' 4k.jpg').replace(' 1080p.jpg', ' 4k.jpg');
+            newImageURL = currImageURL.replace('.jpg', ' 4k.jpg').replace(' 1080p.jpg', ' 4k.jpg');
         } 
         else if (resolution >= 1920) {
-            // Replace 4K or standard image URL with 1080p image URL
-            var newImageURL = currImageURL.replace('.jpg', ' 1080p.jpg').replace(' 4k.jpg', ' 1080p.jpg');
+            newImageURL = currImageURL.replace('.jpg', ' 1080p.jpg').replace(' 4k.jpg', ' 1080p.jpg');
         }
         else {
-            // Replace 4K or 1080p image URL with standard image URL
-            var newImageURL = currImageURL.replace(' 4k.jpg', '.jpg').replace(' 1080p.jpg', '.jpg');
+            newImageURL = currImageURL.replace(' 4k.jpg', '.jpg').replace(' 1080p.jpg', '.jpg');
         }
 
-        // Update the img src
-        hammerhead.src = newImageURL;
+        // Update the img src after checking
+        updateImageSrc(imgElement, newImageURL);
     }
 }
 

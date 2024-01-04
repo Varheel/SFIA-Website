@@ -175,6 +175,48 @@ the image i've been using for the desktop footer. it
 will probably be taller.
 
 */
+  .box-1 {
+    background-image: url("webp/1080p/Button 1 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-2 {
+    background-image: url("webp/1080p/Button 2 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 7em;
+    box-sizing: border-box;
+  }
+  .box-3 {
+    background-image: url("webp/1080p/Button 3 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-4 {
+    background-image: url("webp/1080p/Button 4 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 5em;
+    box-sizing: border-box;
+  }
+  .box-5 {
+    background-image: url("webp/1080p/Button 6 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-6 {
+    background-image: url("webp/1080p/Button 7 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
 }
 /* ================ MEDIUM SCREENS ================== */
 @media only screen and (min-width: 1026px) and (max-width: 2559px) {
@@ -239,6 +281,48 @@ will probably be taller.
     background-repeat: no-repeat;
     width: 100%;
     height: 43px;
+  }
+  .box-1 {
+    background-image: url("webp/1080p/Button 1 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-2 {
+    background-image: url("webp/1080p/Button 2 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 7em;
+    box-sizing: border-box;
+  }
+  .box-3 {
+    background-image: url("webp/1080p/Button 3 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-4 {
+    background-image: url("webp/1080p/Button 4 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 5em;
+    box-sizing: border-box;
+  }
+  .box-5 {
+    background-image: url("webp/1080p/Button 6 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-6 {
+    background-image: url("webp/1080p/Button 7 1080.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
   }
 }
 @media only screen and (min-width: 2560px) {
@@ -308,68 +392,48 @@ will probably be taller.
     width: 100%;
     height: 86px;
   }
-}
-/* =============== Boxes / blocks / widgets =============== */
-/*
- Currently working on a javascript solution to change
- the background image for the boxes based on device width. Could
- just put the mixins in each media query with different file paths,
- but I don't wanna pollute the css further. 
-*/
-.box-1 {
-  background-image: url("webp/1080p/Button 1 1080.webp");
-  background-size: 100% 100%;
-  width: 100%;
-  height: 12.5em;
-  box-sizing: border-box;
-}
-
-.box-2 {
-  background-image: url("webp/1080p/Button 2 1080.webp");
-  background-size: 100% 100%;
-  width: 100%;
-  height: 7em;
-  box-sizing: border-box;
-}
-
-.box-3 {
-  background-image: url("webp/1080p/Button 3 1080.webp");
-  background-size: 100% 100%;
-  width: 100%;
-  height: 12.5em;
-  box-sizing: border-box;
-}
-
-.box-4 {
-  background-image: url("webp/1080p/Button 4 1080.webp");
-  background-size: 100% 100%;
-  width: 100%;
-  height: 5em;
-  box-sizing: border-box;
-}
-
-.box-5 {
-  background-image: url("webp/1080p/Button 6 1080.webp");
-  background-size: 100% 100%;
-  width: 100%;
-  height: 12.5em;
-  box-sizing: border-box;
-}
-
-.box-6 {
-  background-image: url("webp/1080p/Button 7 1080.webp");
-  background-size: 100% 100%;
-  width: 100%;
-  height: 12.5em;
-  box-sizing: border-box;
-}
-
-.box-7 {
-  background-image: url("webp/1080p/Button 8 1080.webp");
-  background-size: 100% 100%;
-  width: 100%;
-  height: 26em;
-  box-sizing: border-box;
+  .box-1 {
+    background-image: url("webp/4K/Button 1 4k.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-2 {
+    background-image: url("webp/4K/Button 2 4k.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 7em;
+    box-sizing: border-box;
+  }
+  .box-3 {
+    background-image: url("webp/4K/Button 3 4k.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-4 {
+    background-image: url("webp/4K/Button 4 4k.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 5em;
+    box-sizing: border-box;
+  }
+  .box-5 {
+    background-image: url("webp/4K/Button 6 4k.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
+  .box-6 {
+    background-image: url("webp/4K/Button 7 4k.webp");
+    background-size: 100% 100%;
+    width: 100%;
+    height: 12.5em;
+    box-sizing: border-box;
+  }
 }
 
 /*# sourceMappingURL=temp.css.map */
