@@ -8,6 +8,7 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
+  font-family: BRAVE Eightyone Regular;
 }
 
 @font-face {
@@ -30,7 +31,9 @@ html, body {
 }
 
 #hammerhead {
-  width: 100%;
+  background-image: url("assets/pic05a.jpg");
+  background-size: cover;
+  height: 100%;
 }
 
 .row {
@@ -259,6 +262,7 @@ will probably be taller.
   #org-title {
     font-family: BRAVE Eightyone Regular;
     font-size: 24px;
+    text-align: center;
   }
   #header.content {
     background-image: url("webp/1080p/1080HDR.webp");
