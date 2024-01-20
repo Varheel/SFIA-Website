@@ -4,11 +4,31 @@ SASS COMMAND:
 sass --watch temp/src/temp.scss:temp/css/temp.css
 
 */
-html, body {
+/*
+    The image assets for each of these breakpoints will be high quality, due to
+    retina display and pixel-doubling tech that is the standard for most
+    modern displays. Usually around 4K res. Image asset dimensions will
+    mostly differentiate via aspect ratio... 16:9, 16:10, 4:3, 3:2, etc.
+*/
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: black;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   font-family: BRAVE Eightyone Regular;
+  font-size: 16px;
+  /* 
+  To calculate the rem units of any element based on a :root font-size of 16px, 
+  you need to divide the desired pixel size by the root font-size.
+
+  For example, if you want an element to have a font-size of 20px, you would calculate:
+  20px / 16px = 1.25rem
+  */
 }
 
 @font-face {
@@ -16,24 +36,13 @@ html, body {
   src: url(fonts/BraveEightyoneRegular-ZVGvm.ttf) format("truetype");
 }
 .content {
-  padding: 10px;
-  /* 
-  	"border-box" includes padding when calculating size, 
-  	so the columns won't wrap unexpectedly
-  */
-  box-sizing: border-box;
+  padding: 0.3125rem;
   width: 100%;
-  height: 100%;
+  display: flex;
 }
 
 .content > div {
-  padding: 10px;
-}
-
-#hammerhead {
-  background-image: url("assets/pic05a.jpg");
-  background-size: cover;
-  height: 100%;
+  padding: 0.7rem;
 }
 
 .row {
@@ -42,135 +51,113 @@ html, body {
   justify-content: center;
 }
 
-/*
-	CHANGE: the percent value for $size is now calculated in the
-	flex item definition. Also added 15 for sidebars, and 70
-	for main-content container.
-*/
+.col-5 {
+  flex: 0 0 5%;
+}
+
+.col-10 {
+  flex: 0 0 10%;
+}
+
+.col-13 {
+  flex: 0 0 13%;
+}
+
 .col-15 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 15%;
 }
 
 .col-20 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 20%;
 }
 
 .col-25 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 25%;
 }
 
 .col-33 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 33%;
 }
 
 .col-40 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 40%;
 }
 
 .col-50 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 50%;
 }
 
 .col-60 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 60%;
 }
 
 .col-66 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 66%;
 }
 
 .col-70 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 70%;
 }
 
+.col-74 {
+  flex: 0 0 74%;
+}
+
 .col-75 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 75%;
 }
 
 .col-80 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 80%;
 }
 
 .col-100 {
-  /*
-  "flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-  We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-  The columns are a fixed percentage of the container width.
-  */
   flex: 0 0 100%;
 }
 
-/* ============== SMALL SCREENS ================== */
-@media only screen and (max-width: 1025px) {
+/* ========================================= X X S ========================================= */
+@media (min-width: 320px) and (max-width: 479px) {
+  .col-100.col-md-13.col-lg-13 {
+    display: none;
+  }
+  .col-100.col-md-74.col-lg-74 {
+    flex-basis: 100%;
+  }
+  .col-100.col-md-66.col-lg-66 {
+    flex-basis: 100%;
+  }
+  .col-100.col-md-33.col-lg-33 {
+    flex-basis: 100%;
+  }
+  .col-100.col-md-50.col-lg-50 {
+    flex-basis: 100%;
+  }
+  html {
+    height: min-content;
+  }
+  .content {
+    align-content: center;
+  }
   #org-title {
     font-family: BRAVE Eightyone Regular;
-    font-size: 20px;
+    font-size: 0.6rem;
+    text-align: center;
   }
-  #header.content {
-    background-image: url("webp/mobile/mblHDR.webp");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+  #header {
+    background: url("webp/mobile/mblHDR.webp") no-repeat center/100% 100%;
+    width: 100%;
+    min-height: 7vh;
+  }
+  #header #logo-4k-edit {
+    width: 2vh;
+    height: 2vh;
   }
   #main-content {
-    background-image: url("webp/mobile/mblMC.webp");
-    background-size: 100% 100%;
-    background-position: center;
+    background: url("webp/mobile/mblMC.webp") no-repeat center/100% 100%;
+    min-height: 86vh;
+  }
+  #footer {
+    min-height: 7vh;
   } /*
 
 the footer for mobile devices will probably be different than
@@ -179,163 +166,225 @@ will probably be taller.
 
 */
   .box-1 {
-    background-image: url("webp/1080p/Button 1 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 1 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 19vh;
+  }
+  .box-1 h3, .box-1 p {
+    text-align: center;
+    color: rgb(242, 247, 220);
+    padding: 0.4rem;
+  }
+  .box-1 h3 {
+    font-size: 1.5vw;
+  }
+  .box-1 p {
+    font-size: 1.1vw;
   }
   .box-2 {
-    background-image: url("webp/1080p/Button 2 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 2 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 7em;
-    box-sizing: border-box;
+    min-height: 1vh;
   }
   .box-3 {
-    background-image: url("webp/1080p/Button 3 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 3 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 24vh;
   }
   .box-4 {
-    background-image: url("webp/1080p/Button 4 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 4 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 5em;
-    box-sizing: border-box;
+    min-height: 5vh;
   }
   .box-5 {
-    background-image: url("webp/1080p/Button 6 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 5 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 19vh;
   }
   .box-6 {
-    background-image: url("webp/1080p/Button 7 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 6 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 23vh;
+  }
+  .box-10 {
+    background: url("webp/1080p/Button 10 1080.webp") no-repeat center/100% 100%;
+    width: 100%;
+    min-height: 40vh;
   }
 }
-/* ================ MEDIUM SCREENS ================== */
-@media only screen and (min-width: 1026px) and (max-width: 2559px) {
-  .col-md-15 {
-    flex: 0 0 15%;
+.col-md-5 {
+  flex: 0 0 5%;
+}
+
+.col-md-10 {
+  flex: 0 0 10%;
+}
+
+.col-md-13 {
+  flex: 0 0 13%;
+}
+
+.col-md-15 {
+  flex: 0 0 15%;
+}
+
+.col-md-20 {
+  flex: 0 0 20%;
+}
+
+.col-md-25 {
+  flex: 0 0 25%;
+}
+
+.col-md-33 {
+  flex: 0 0 33%;
+}
+
+.col-md-40 {
+  flex: 0 0 40%;
+}
+
+.col-md-50 {
+  flex: 0 0 50%;
+}
+
+.col-md-60 {
+  flex: 0 0 60%;
+}
+
+.col-md-66 {
+  flex: 0 0 66%;
+}
+
+.col-md-70 {
+  flex: 0 0 70%;
+}
+
+.col-md-74 {
+  flex: 0 0 74%;
+}
+
+.col-md-75 {
+  flex: 0 0 75%;
+}
+
+.col-md-80 {
+  flex: 0 0 80%;
+}
+
+.col-md-100 {
+  flex: 0 0 100%;
+}
+
+/* ========================================= MEDIUM ========================================= */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .col-100.col-md-66.col-lg-66 {
+    flex-basis: 100%;
   }
-  .col-md-20 {
-    flex: 0 0 20%;
+  .col-100.col-md-33.col-lg-33 {
+    flex-basis: 100%;
   }
-  .col-md-25 {
-    flex: 0 0 25%;
+  #hammerhead-flex > .content {
+    height: 100%;
   }
-  .col-md-33 {
-    flex: 0 0 33%;
+  #box-four {
+    display: none;
   }
-  .col-md-40 {
-    flex: 0 0 40%;
+  #box-five {
+    display: none;
   }
-  .col-md-50 {
-    flex: 0 0 50%;
-  }
-  .col-md-60 {
-    flex: 0 0 60%;
-  }
-  .col-md-66 {
-    flex: 0 0 66%;
-  }
-  .col-md-70 {
-    flex: 0 0 70%;
-  }
-  .col-md-75 {
-    flex: 0 0 75%;
-  }
-  .col-md-80 {
-    flex: 0 0 80%;
-  }
-  .col-md-100 {
-    flex: 0 0 100%;
+  html {
+    height: min-content;
   }
   #org-title {
     font-family: BRAVE Eightyone Regular;
-    font-size: 24px;
+    font-size: 0.6rem;
     text-align: center;
   }
-  #header.content {
-    background-image: url("webp/1080p/1080HDR.webp");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+  #header {
+    background: url("webp/1080p/1080HDR.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 124px;
+    height: 9vh;
+  }
+  #header #logo-4k-edit {
+    display: none;
   }
   #main-content {
-    background-image: url("webp/1080p/1080MC.webp");
-    background-size: 100% 100%;
-    background-position: center;
-    height: 913px;
+    background: url("webp/1080p/1080MC.webp") no-repeat center/100% 100% border-box;
+    height: 84vh;
   }
-  #footer.content {
-    background-image: url("webp/1080p/1080FTR.webp");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 43px;
-  }
+  #footer {
+    background: url("webp/1080p/1080FTR.webp") no-repeat center/100% 100%;
+    height: 7vh;
+  } /*
+
+the footer for mobile devices will probably be different than
+the image i've been using for the desktop footer. it
+will probably be taller.
+
+*/
   .box-1 {
-    background-image: url("webp/1080p/Button 1 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 1 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 19vh;
+  }
+  .box-1 h3, .box-1 p {
+    text-align: center;
+    color: rgb(242, 247, 220);
+    padding: 0.4rem;
+  }
+  .box-1 h3 {
+    font-size: 1.5vw;
+  }
+  .box-1 p {
+    font-size: 1.1vw;
   }
   .box-2 {
-    background-image: url("webp/1080p/Button 2 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 2 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 7em;
-    box-sizing: border-box;
+    min-height: 1vh;
   }
   .box-3 {
-    background-image: url("webp/1080p/Button 3 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 3 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 24vh;
   }
   .box-4 {
-    background-image: url("webp/1080p/Button 4 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 4 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 5em;
-    box-sizing: border-box;
+    min-height: 5vh;
   }
   .box-5 {
-    background-image: url("webp/1080p/Button 6 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 5 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 19vh;
   }
   .box-6 {
-    background-image: url("webp/1080p/Button 7 1080.webp");
-    background-size: 100% 100%;
+    background: url("webp/1080p/Button 6 1080.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 23vh;
+  }
+  .box-10 {
+    background: url("webp/1080p/Button 10 1080.webp") no-repeat center/100% 100%;
+    width: 100%;
+    min-height: auto;
   }
 }
-@media only screen and (min-width: 2560px) {
-  body {
-    font-size: 32px;
-  }
+/* ========================================= LARGE SCREENS ========================================= */
+@media (min-width: 1200px) {
   #org-title {
+    width: 60vw;
     font-family: BRAVE Eightyone Regular;
-    font-size: 48px;
+    font-size: clamp(0.4rem, 1.2vw, 1.5rem);
+  }
+  .col-lg-5 {
+    flex: 0 0 5%;
+  }
+  .col-lg-10 {
+    flex: 0 0 10%;
+  }
+  .col-lg-13 {
+    flex: 0 0 13%;
   }
   .col-lg-15 {
     flex: 0 0 15%;
@@ -364,6 +413,9 @@ will probably be taller.
   .col-lg-70 {
     flex: 0 0 70%;
   }
+  .col-lg-74 {
+    flex: 0 0 74%;
+  }
   .col-lg-75 {
     flex: 0 0 75%;
   }
@@ -373,71 +425,115 @@ will probably be taller.
   .col-lg-100 {
     flex: 0 0 100%;
   }
-  #header.content {
-    background-image: url("webp/4K/4kHDR.webp");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+  .col-md-74.col-lg-74 {
+    padding-left: 1vw;
+  }
+  #header {
+    background: url("webp/Large/4kHDR.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 248px;
+    min-height: 11vh;
+  }
+  #header #logo-4k-edit {
+    height: 100px;
   }
   #main-content {
-    background-image: url("webp/4K/4kMC.webp");
-    background-size: 100% 100%;
-    background-position: center;
+    background: url("webp/Large/4kMC.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 1826px;
+    min-height: 87vh;
   }
-  #footer.content {
-    background-image: url("webp/4K/4kFTR.webp");
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+  #footer {
+    background: url("webp/Large/4kFTR.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 86px;
+    min-height: 2vh;
   }
   .box-1 {
-    background-image: url("webp/4K/Button 1 4k.webp");
-    background-size: 100% 100%;
+    background: url("webp/Large/Button 1 4k.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 19vh;
+    max-height: 21vh;
+  }
+  .box-1 h3, .box-1 p {
+    padding: 0.4rem;
+    text-align: center;
+    color: rgb(242, 247, 220);
+  }
+  .box-1 h3 {
+    font-size: 1vw;
+  }
+  .box-1 p {
+    font-size: 0.8vw;
   }
   .box-2 {
-    background-image: url("webp/4K/Button 2 4k.webp");
-    background-size: 100% 100%;
+    background: url("webp/Large/Button 2 4k.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 7em;
-    box-sizing: border-box;
+    min-height: 11vh;
+    max-height: 13vh;
   }
   .box-3 {
-    background-image: url("webp/4K/Button 3 4k.webp");
-    background-size: 100% 100%;
+    background: url("webp/Large/Button 3 4k.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 24vh;
+    max-height: 26vh;
   }
   .box-4 {
-    background-image: url("webp/4K/Button 4 4k.webp");
-    background-size: 100% 100%;
+    background: url("webp/Large/Button 4 4k.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 5em;
-    box-sizing: border-box;
+    min-height: 5vh;
+    max-height: 7vh;
   }
   .box-5 {
-    background-image: url("webp/4K/Button 6 4k.webp");
-    background-size: 100% 100%;
+    background: url("webp/Large/Button 5 4k.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 19vh;
+    max-height: 21vh;
   }
   .box-6 {
-    background-image: url("webp/4K/Button 7 4k.webp");
-    background-size: 100% 100%;
+    background: url("webp/Large/Button 6 4k.webp") no-repeat center/100% 100%;
     width: 100%;
-    height: 12.5em;
-    box-sizing: border-box;
+    min-height: 23vh;
+    max-height: 25vh;
   }
+  .box-10 {
+    background: url("webp/Large/Button 10 4k.webp") no-repeat center/100% 100%;
+    width: 100%;
+    min-height: 60vh;
+    max-height: 62vh;
+  }
+}
+/*
+	this will save possibly HOURS of development because I always forget to 
+	run the damn SASS command before editing. We can comment it out along with the 
+	javascript and html logic before deployment.
+*/
+.dialog-box {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.dialog-content {
+  background-color: #000000;
+  font-size: 28px;
+  color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 2px solid #888;
+  width: 80%;
+  box-shadow: 0 6px 12px 0 rgb(0, 0, 0);
+  text-align: center;
+}
+
+.dialog-box button {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #888;
+  color: white;
 }
 
 /*# sourceMappingURL=temp.css.map */

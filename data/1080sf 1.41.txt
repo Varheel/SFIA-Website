@@ -1,0 +1,17 @@
+1080sf 1.41
+
+4Ksf 2.8
+
+height scaled for 1080p
+
+box-1 : H = 207px from 147px
+	      W = from 290px
+
+box-2 : 114px from 81px
+
+box-3 : 192px from 136px
+
+box-4 : 43.71 from 31px
+
+box-5 : 206px from 146px
+

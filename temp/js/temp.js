@@ -1,70 +1,108 @@
 console.log("JavaScript is connected!");
 
-// Function to update image resolution
-/*function updateRes() 
+// JS variables
+var vh = window.innerHeight;
+var vw = window.innerWidth;
+var headerHeight = (vh * 0.11) + 'px';
+var mcHeight = (vh * 0.85) + 'px';
+var footerHeight = (vh * 0.04) + 'px';
+
+
+// Ok button onclick event
+document.getElementById("okButton").onclick = function() 
 {
-    // Function to check if an image exists
-    function checkImage(src) 
+    document.getElementById("dialogBox").style.display = "none";
+}
+console.log(window.devicePixelRatio)
+/*
+function detectZoomLevel() {
+    // Example implementation, this will vary depending on the method used
+    var zoomLevel = window.devicePixelRatio;
+    return zoomLevel;
+}
+
+function adjustForZoom() 
+{
+    var element = document.querySelector(".col-md-70.col-lg-70")
+    var zoomLevel = detectZoomLevel();
+    // DPR floats =/= browser zoom percentage
+    var thirtyPercent = 0.38;
+    var fiftyPercent = 0.63;
+    var sixty_sevenPercent = 0.84;
+    var eightyPercent = 1;
+    var ninetyPercent = 1.14;
+    var hundredPercent = 1.26;
+    console.log([zoomLevel])
+    var UHD = 3840;
+    var qualHD
+    var fullHD =1920;
+
+    if (zoomLevel < thirtyPercent)
     {
-        return new Promise((resolve) => 
-        {
-            var img = new Image();
-            img.onload = () => resolve({ src, status: true });
-            img.onerror = () => resolve({ src, status: false });
-            img.src = src;
-        });
+        element.style.scale = "60% 100%"
     }
-
-    // Update function for img elements
-    async function updateImageSrc(element, newSrc) {
-        const result = await checkImage(newSrc);
-        if (result.status) {
-            element.src = newSrc;
-        }
-    }
-
-    var resolution = window.screen.width;
-
-    // Select all elements with background-image
-    var imageElements = document.querySelectorAll(
-        '[style*="background-image"]');
-
-    imageElements.forEach(function(element) 
+    else if (zoomLevel < fiftyPercent) 
     {
-        // Get current background image URL
-        var currImageURL = element.style.backgroundImage;
-
-        // Check for 4K resolution
-        if (resolution >= 3840) 
-        {
-            // Replace 1080p image URL with 4K image URL
-            var newImageURL = currImageURL.replace('webp/1080p', 'webp/4K').replace('1080.webp', '4k.webp');
-        }
-
-        // Update background image URL
-        element.style.backgroundImage = newImageURL;
-    });
-    
-    // Handle the specific img element
-    var imgElement = document.getElementById('hammerhead');
-    if (imgElement) {
-        var currImageURL = imgElement.src;
-        var newImageURL;
-
-        if (resolution >= 3840) {
-            newImageURL = currImageURL.replace('.jpg', ' 4k.jpg').replace(' 1080p.jpg', ' 4k.jpg');
-        } 
-        else if (resolution >= 1920) {
-            newImageURL = currImageURL.replace('.jpg', ' 1080p.jpg').replace(' 4k.jpg', ' 1080p.jpg');
-        }
-        else {
-            newImageURL = currImageURL.replace(' 4k.jpg', '.jpg').replace(' 1080p.jpg', '.jpg');
-        }
-
-        // Update the img src after checking
-        updateImageSrc(imgElement, newImageURL);
+        element.style.scale = "70% 100%";
+    } 
+    else if (zoomLevel < sixty_sevenPercent)
+    {
+        element.style.scale = "80% 100%"
+    } 
+    else if (zoomLevel < eightyPercent)
+    {
+        element.style.scale = "90% 100%"
+    } 
+    else if (zoomLevel < ninetyPercent) 
+    {
+        element.style.scale = "100% 100%"
     }
 }
 
-// Call function on page load
-window.onload = updateRes;*/
+
+
+
+// Debounce function to limit resizing for performance
+function debounce(func, wait) 
+{
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            func.apply(context, args);
+        }, wait);
+    };
+}
+*/
+
+// function for SASS command reminder
+function initialize() 
+{
+    //adjustForZoom();
+
+    // Get the last session timestamp
+    var lastSessionTimestamp = localStorage.getItem("lastSessionTimestamp");
+
+    // Get current timestamp
+    var currentTimestamp = new Date().getTime();
+
+    // Check if the dialog has already been shown or if the last session is older than 2 hrs
+    if (localStorage.getItem("dialogShown") !== "true" || (lastSessionTimestamp && currentTimestamp - lastSessionTimestamp > 7200000)) {
+        document.getElementById("dialogBox").style.display = "block";
+        // Set the flag in localStorage
+        localStorage.setItem("dialogShown", "true");
+        // Update the timestamp
+        localStorage.setItem("lastSessionTimestamp", currentTimestamp);
+    }
+}
+
+window.onload = initialize;
+
+/*
+// Debounced event listener for window resize
+window.addEventListener('resize', debounce(function() 
+{
+    // Adjust sizes based on new dimensions
+    adjustForZoom();
+}, 20)); // Wait for 20ms before executing*/

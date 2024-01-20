@@ -18,17 +18,21 @@
 -->
 <body>
 	<!--
-		The page is broken into rows and columns. The rows are flex containers, and the columns are flex items.
-		At the root body element, there are three rows for the header, main content, and footer.
-	-->	  
-	<div class="row">
-		<!-- col-100 is not responsive and always takes up 100% of the container (row) width. -->
+		This is the logic for the SASS command reminder
+	-->
+	<div id="dialogBox" class="dialog-box">
+		<div class="dialog-content">
+			<p>Reminder to run the SASS command</p>
+			<button id="okButton">ok</button>
+		</div>
+	</div>	
+	<div id="header" class="row">
 		<div class="col-100">
-			<div id="header" class="content">
-				<div class="row">
+			<div class="content">
+				<div id="overlay-HDR" class="row">
 					<div class="col-40"></div>
 					<div class="col-20">
-						<img src="css/assets/logo_4k_edit.webp" style="height: 4em; margin-left: 5em;">
+						<img id="logo-4k-edit" src="css/assets/logo_4k_edit.webp">
 					</div>
 					<div class="col-40"></div>
 				</div>
@@ -36,100 +40,100 @@
 		</div>
 	</div>
 	<div id="main-content" class="row">
-		<!-- sidebar-left -->
-		<div class="col-md-15 col-lg-15"></div>
-		<div class="col-md-70 col-lg-70">
-			<div class="row">
-				<!-- col-100 means the next "column" will wrap to a new line, though it will still be in the same "row" -->
-				<div class="col-100">
-					<div class="content">
-						<div class="box-2">
-							<h1 id="org-title">Stanton Freelancers Initiative Alliance</h1>
-						</div>
-					</div>
-				</div>
-				<!--
-					On medium or larger screens, this column will take up 2/3 of the container width.
-					Otherwise (on small screens) it takes up 100%.
-				-->
-				<div class="col-100 col-md-66 col-lg-66">
-					<!-- A new container is nested inside. -->
+		<div class="col-100">
+			<div class="content">
+				<!-- sidebar-left -->
+				<div class="col-100 col-md-13 col-lg-13"></div>
+				<!-- main-content -->
+				<div class="col-100 col-md-74 col-lg-74">
 					<div class="row">
-						<!--
-							The widths of these columns will be based on the parent container, not the whole screen.
-							You can nest as many layers as you want, breaking the page into progressively smaller sections.
-							It could be broken up differently, but this is how I organized it.
+						<!-- 
+							col-100 means the next "column" will wrap to a new line, 
+							though it will still be in the same "row" 
 						-->
-						<div class="col-100 col-md-50 col-lg-50">
+						<div class="col-100">
 							<div class="row">
-								<div class="col-100">
-									<div class="content">
-										<div class="box-1" style="color: white; font-family: BRAVE Eightyone Regular;">
-											<h3>"Your needs become our deeds"</h3>
-											<p>We are a Star Citizen org dedicated to helping you reach your goals in game. We do a little of everything: combat, hauling, salvage, and mining. Reach out to us in your time of need, or join us and let's have some fun.</p>
+								<div class="content">
+									<div class="box-2">
+										<h1 id="org-title" class="col-100">STANTON FREELANCERS INITIATIVE ALLIANCE</h1>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<!--
+							On medium or larger screens, this column will take up 2/3 of the 
+							container width. Otherwise (on small screens) it takes up 100%.
+						-->
+						<div class="col-100 col-md-66 col-lg-66">
+							<!-- A new container is nested inside. -->
+							<div class="row">
+								<div id="1-3-6-flex" class="col-100 col-md-50 col-lg-50">
+									<div class="row">
+										<div class="col-100">
+											<div class="content">
+												<div class="box-1">
+													<h3>"Your needs become our deeds"</h3>
+													<p>We are a Star Citizen org dedicated to helping you reach your goals in game. We do a little of everything: combat, hauling, salvage, and mining. Reach out to us in your time of need, or join us and let's have some fun.</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-100">
+											<div class="content">
+												<div class="box-3"></div>
+											</div>
+										</div>
+										<div class="col-100">
+											<div class="content">
+												<div class="box-6"></div>
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-100">
+								<div id="hammerhead-flex" class="col-100 col-md-50 col-lg-50">
 									<div class="content">
-										<div class="box-3">
-											<div style="background-image: url('css/assets/pic01a.jpg'); background-size: cover; height: 9em; margin: 1em;"></div>
-										</div>
+										<div id="hammerhead" class="box-10"></div>
 									</div>
 								</div>
-								<div class="col-100">
+								<div id="box-four" class="col-100">
 									<div class="content">
-										<div class="box-6">
-											<div style="background-image: url('css/assets/pic02a.jpg'); background-size: cover; height: 9em; margin: 1em;"></div>
+										<div class="box-4">
+											<h3>* This website is under construction.</h3>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-100 col-md-50 col-lg-50">
-							<div class="content">
-								<div id="hammerhead"></div>
-							</div>
-						</div>
-						<div class="col-100">
-							<div class="content">
-								<div class="box-4">
-									<h3>* This website is under construction.</h3>
+						<div class="col-100 col-md-33 col-lg-33">
+							<div class="row">
+								<div id="box-five" class="col-100">
+									<div class="content">
+										<div class="box-5"></div>
+									</div>
+								</div>
+								<div class="col-100">
+									<div class="content">
+										<div class="box-4">
+											<a target="_blank" rel="noopener noreferrer" href="https://robertsspaceindustries.com/orgs/SFIA">
+												Visit SFIA on the RSI Website --\>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-100">
+									<!-- Box 7 was here. It's replaced by the Discord widget for now. -->
+									<div id="widget" class="content">
+										<iframe src="https://discord.com/widget?id=1169302982324662302&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-100 col-md-33 col-lg-33">
-					<div class="row">
-						<div class="col-100">
-							<div class="content">
-								<div class="box-5">
-									<div style="background-image: url('css/assets/pic03a.jpg'); background-size: cover; height: 9em; margin: 1em;"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-100">
-							<div class="content">
-								<div class="box-4" style="line-height: 4em;">
-									<a target="_blank" rel="noopener noreferrer" href="https://robertsspaceindustries.com/orgs/SFIA">
-										Visit SFIA on the RSI Website --\>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-100">
-							<!-- Box 7 was here. It's replaced by the Discord widget for now. -->
-							<div class="content" style="height: 27.5em;">
-								<iframe src="https://discord.com/widget?id=1169302982324662302&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-							</div>
-						</div>
-					</div>
-				</div>
+				<!-- sidebar-right -->
+				<div class="col-100 col-md-13 col-lg-13"></div>
 			</div>
 		</div>
-	<div class="col-15 col-md-15 col-lg-15"></div>
-	</div>
+	</div>	
 	<div class="row">
 		<div class="col-100">
 			<div id="footer" class="content"></div>

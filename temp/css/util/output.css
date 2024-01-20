@@ -1,0 +1,19 @@
+div.box-1 
+{
+    color: white;
+	font-family: BRAVE Eightyone Regular;
+}
+
+div 
+{
+    background-image: url('css/assets/pic03a.jpg');
+	background-size: cover;
+	height: 9em;
+	margin: 1em;
+}
+
+div.box-4 
+{
+    line-height: 4em;
+}
+

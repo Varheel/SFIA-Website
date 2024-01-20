@@ -4,22 +4,31 @@ SASS COMMAND:
 sass --watch temp/src/temp.scss:temp/css/temp.css
 
 */
-// mixin's
-@mixin box($width, $height, $background-image) 
+
+@import 'mixins';
+
+// reset browser's default styling
+*
 {
-    background-image: url($background-image);
-    background-size: 100% 100%;
-    width: $width;
-    height: $height;
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 
-html, body
+html
 {
-	margin: 0;
+	background-color: black;
 	width: 100%;
-	height: 100%;
+	height: fit-content;
 	font-family: BRAVE Eightyone Regular;
+	font-size: 16px;// so we can use rem units
+	/* 
+	To calculate the rem units of any element based on a :root font-size of 16px, 
+	you need to divide the desired pixel size by the root font-size.
+
+	For example, if you want an element to have a font-size of 20px, you would calculate:
+	20px / 16px = 1.25rem
+	*/
 }
 
 @font-face
@@ -31,27 +40,15 @@ html, body
 .content
 {
 	// Spacing between flex-items
-	padding: 10px;
-	/* 
-		"border-box" includes padding when calculating size, 
-		so the columns won't wrap unexpectedly
-	*/
-	box-sizing: border-box;
+	padding: 0.3125rem;
 	width: 100%;
-	height: 100%;
+	display: flex;
 }
 
 .content > div
 {
 	// Spaces text away from box edges
-	padding: 10px;
-}
-
-#hammerhead
-{
-	background-image: url('assets/pic05a.jpg');
-	background-size: cover;
-	height: 100%;
+	padding: 0.7rem;
 }
 
 // For flex containers
@@ -62,52 +59,62 @@ html, body
 	justify-content: center;
 }
 
-/*
-	CHANGE: the percent value for $size is now calculated in the
-	flex item definition. Also added 15 for sidebars, and 70
-	for main-content container.
-*/
 // Widths for flex columns
-$sizes: (15, 20, 25, 33, 40, 50, 60, 66, 70, 75, 80, 100);
+$sizes: (5, 10, 13, 15, 20, 25, 33, 40, 50, 60, 66, 70, 74, 75, 80, 100);
 
-// Flex item definitions (default / small screens)  
+// Flex item def (default / small)
+
 @each $size in $sizes
 {
 	.col-#{$size}
 	{
-	/*
-	"flex" is shorthand for flex-grow, flex-shrink, and flex-basis.
-	We don't need the flex items to grow to fill the container, or shrink to fit inside it.
-	The columns are a fixed percentage of the container width.
-	*/
 		flex: 0 0 percentage($size * 0.01);
 	}
 }
 
-/* ============== SMALL SCREENS ================== */  
 
-@media only screen and (max-width: 1025px)
+
+/* ========================================= X X S ========================================= */  
+
+@include media-query('xxs')
 {
+	html
+	{
+		height: min-content;
+	}
+
+	.content
+	{
+		align-content: center;
+	}
+
 	#org-title
 	{
-	font-family: BRAVE Eightyone Regular;
-	font-size: 20px;
+		font-family: BRAVE Eightyone Regular;
+		font-size: 0.6rem;
+		text-align: center;
 	}
 
-	#header.content
+	#header
 	{
-		// sets background image of header for mobile
-		background-image: url('webp/mobile/mblHDR.webp');
-		background-size: 100% 100%;
-		background-position: center;
-		background-repeat: no-repeat;
+		background: url('webp/mobile/mblHDR.webp') no-repeat center / 100% 100%;
+		width: 100%;
+		min-height: 7vh;
+		#logo-4k-edit
+		{
+			width: 2vh;
+			height: 2vh;
+		}
 	}
+
 	#main-content
 	{
-		// sets bckground image for main-content for mobile
-		background-image: url('webp/mobile/mblMC.webp');
-		background-size: 100% 100%;
-		background-position: center;
+		background: url('webp/mobile/mblMC.webp') no-repeat center / 100% 100%;
+		min-height: 86vh;
+	}
+	#footer
+	{
+		min-height: 7vh;
 	}/*
 
 		the footer for mobile devices will probably be different than
@@ -115,107 +122,131 @@ $sizes: (15, 20, 25, 33, 40, 50, 60, 66, 70, 75, 80, 100);
 		will probably be taller.
 
 	 */
-	 .box-1
-	 {@include box(100%, 12.5em, 'webp/1080p/Button 1 1080.webp');}
+
+	.box-1
+	 {
+		@include boxMBL(100%, 19vh, 'webp/1080p/Button 1 1080.webp');
+		h3, p
+		{
+			text-align: center;
+			color: rgb(242, 247, 220);
+			padding: .4rem;
+		}
+		h3{font-size: 1.5vw;}
+		p{font-size: 1.1vw;}
+	}
 	 
-	 .box-2
-	 {@include box(100%, 7em, 'webp/1080p/Button 2 1080.webp');}
+	.box-2
+	 {@include boxMBL(100%, 1vh, 'webp/1080p/Button 2 1080.webp');}
 	 
-	 .box-3
-	 {@include box(100%, 12.5em, 'webp/1080p/Button 3 1080.webp');}
+	.box-3
+	 {@include boxMBL(100%, 24vh, 'webp/1080p/Button 3 1080.webp');}
  
-	 .box-4
-	 {@include box(100%, 5em, 'webp/1080p/Button 4 1080.webp');}
+	.box-4
+	 {@include boxMBL(100%, 5vh, 'webp/1080p/Button 4 1080.webp');}
  
-	 .box-5
-	 {@include box(100%, 12.5em, 'webp/1080p/Button 6 1080.webp');}
+	.box-5
+	 {@include boxMBL(100%, 19vh, 'webp/1080p/Button 5 1080.webp');}
  
-	 .box-6
-	 {@include box(100%, 12.5em, 'webp/1080p/Button 7 1080.webp');}
+	.box-6
+	 {@include boxMBL(100%, 23vh, 'webp/1080p/Button 6 1080.webp');}
+
+	.box-10
+	 {@include boxMBL(100%, 40vh, 'webp/1080p/Button 10 1080.webp');}
 }
 
-
-/* ================ MEDIUM SCREENS ================== */
-
-@media only screen and (min-width: 1026px) and (max-width: 2559px)
+// Flex items for medium screens 
+@each $size in $sizes
 {
-	// Flex items for medium screens 
-	@each $size in $sizes
+	.col-md-#{$size}
 	{
-		.col-md-#{$size}
-		{
-			flex: 0 0 percentage($size * 0.01);
-		}
+		flex: 0 0 percentage($size * 0.01);
 	}
-	
+}
+
+/* ========================================= MEDIUM ========================================= */
+
+@include media-query('md') 
+{
+	html 
+	{
+		height:min-content;
+	}
 	#org-title
 	{
 		font-family: BRAVE Eightyone Regular;
-		font-size: 24px;
+		font-size: 0.6rem;
 		text-align: center;
 	}
 
-	#header.content
+	#header
 	{
-		// sets background image of 1080p header
-		background-image: url('webp/1080p/1080HDR.webp');
-		background-size: 100% 100%;
-		background-position: center;
-		background-repeat: no-repeat;
+		background: url('webp/1080p/1080HDR.webp') no-repeat center / 100% 100%;
 		width: 100%;
-		height: 124px;// 11vh
+		height: 9vh;
+		#logo-4k-edit
+		{
+			display: none;
+		}
 	}
+
 	#main-content
 	{
-		// sets bckground image for 1080p main-content
-		background-image: url('webp/1080p/1080MC.webp');
-		background-size: 100% 100%;
-		background-position: center;
-		height: 913px;// 85vh
+		background: url('webp/1080p/1080MC.webp') no-repeat center / 100% 100% border-box;
+		height: 84vh;
 	}
-
-	#footer.content
+	#footer
 	{
-		// sets background image of footer
-		background-image: url('webp/1080p/1080FTR.webp');
-		background-size: 100% 100%;
-		background-position: center;
-		background-repeat: no-repeat;
-		width: 100%;
-		height: 43px;// 4vh
-	}
+		background: url('webp/1080p/1080FTR.webp') no-repeat center / 100% 100%;
+		height: 7vh;
+	}/*
+
+		the footer for mobile devices will probably be different than
+		the image i've been using for the desktop footer. it
+		will probably be taller.
+
+	 */
 
 	.box-1
-	{@include box(100%, 12.5em, 'webp/1080p/Button 1 1080.webp');}
-	
-	.box-2
-	{@include box(100%, 7em, 'webp/1080p/Button 2 1080.webp');}
-	
-	.box-3
-	{@include box(100%, 12.5em, 'webp/1080p/Button 3 1080.webp');}
-
-	.box-4
-	{@include box(100%, 5em, 'webp/1080p/Button 4 1080.webp');}
-
-	.box-5
-	{@include box(100%, 12.5em, 'webp/1080p/Button 6 1080.webp');}
-
-	.box-6
-	{@include box(100%, 12.5em, 'webp/1080p/Button 7 1080.webp');}
-}
-
-@media only screen and (min-width: 2560px)
-{
-	body
-	{
-		// this is set for the 'em' units for the boxes
-		font-size: 32px;
+	 {
+		@include boxMBL(100%, 19vh, 'webp/1080p/Button 1 1080.webp');
+		h3, p
+		{
+			text-align: center;
+			color: rgb(242, 247, 220);
+			padding: .4rem;
+		}
+		h3{font-size: 1.5vw;}
+		p{font-size: 1.1vw;}
 	}
-	
+	 
+	.box-2
+	 {@include boxMBL(100%, 1vh, 'webp/1080p/Button 2 1080.webp');}
+	 
+	.box-3
+	 {@include boxMBL(100%, 24vh, 'webp/1080p/Button 3 1080.webp');}
+ 
+	.box-4
+	 {@include boxMBL(100%, 5vh, 'webp/1080p/Button 4 1080.webp');}
+ 
+	.box-5
+	 {@include boxMBL(100%, 19vh, 'webp/1080p/Button 5 1080.webp');}
+ 
+	.box-6
+	 {@include boxMBL(100%, 23vh, 'webp/1080p/Button 6 1080.webp');}
+
+	.box-10
+	 {@include boxMBL(100%, auto, 'webp/1080p/Button 10 1080.webp');}
+}
+/* ========================================= LARGE SCREENS ========================================= */
+@include media-query('lg')
+{
+
 	#org-title
 	{
+		width: 60vw;
 		font-family: BRAVE Eightyone Regular;
-		font-size: 48px;
+		font-size: clamp(0.4rem, 1.2vw, 1.5rem);
 	}
 
 	// Flex items for large screens
@@ -227,52 +258,98 @@ $sizes: (15, 20, 25, 33, 40, 50, 60, 66, 70, 75, 80, 100);
 		}
 	}
 
-	#header.content
+	.col-md-74.col-lg-74{padding-left: 1vw;}
+
+	#header
 	{
-		// sets background image of header
-		background-image: url('webp/4K/4kHDR.webp');
-		background-size: 100% 100%;
-		background-position: center;
-		background-repeat: no-repeat;
+		// background image for 4K header
+		background: url('webp/Large/4kHDR.webp') no-repeat center / 100% 100%;
 		width: 100%;
-		height: 248px;
-	}
-	#main-content
-	{
-		// sets bckground image for everything between header and footer 
-		background-image: url('webp/4K/4kMC.webp');
-		background-size: 100% 100%;
-		background-position: center;
-		width: 100%;
-		height: 1826px;
+		min-height: 11vh;
+		#logo-4k-edit
+		{
+			height: 100px;
+		}
 	}
 
-	#footer.content
+	#main-content
 	{
-		// sets background image of footer
-		background-image: url('webp/4K/4kFTR.webp');
-		background-size: 100% 100%;
-		background-position: center;
-		background-repeat: no-repeat;
+		background: url('webp/Large/4kMC.webp') no-repeat center / 100% 100%;
 		width: 100%;
-		height: 86px;
+		min-height: 87vh;
+	}
+
+	#footer
+	{
+		background: url('webp/Large/4kFTR.webp') no-repeat center / 100% 100%;
+		width: 100%;
+		min-height: 2vh;
 	}
 
 	.box-1
-	{@include box(100%, 12.5em, 'webp/4K/Button 1 4k.webp');}
+	{
+		@include box(100%, 19vh, 21vh, 'webp/Large/Button 1 4k.webp');
+		h3, p
+		{
+			padding: .4rem;
+			text-align: center;
+			color: rgb(242, 247, 220);
+		}
+		h3{font-size: 1vw;}
+		p{font-size: .8vw;}
+	}
 	
 	.box-2
-	{@include box(100%, 7em, 'webp/4K/Button 2 4k.webp');}
+	{@include box(100%, 11vh, 13vh, 'webp/Large/Button 2 4k.webp');}
 	
 	.box-3
-	{@include box(100%, 12.5em, 'webp/4K/Button 3 4k.webp');}
+	{@include box(100%, 24vh, 26vh, 'webp/Large/Button 3 4k.webp');}
 
 	.box-4
-	{@include box(100%, 5em, 'webp/4K/Button 4 4k.webp');}
+	{@include box(100%, 5vh, 7vh, 'webp/Large/Button 4 4k.webp');}
 
 	.box-5
-	{@include box(100%, 12.5em, 'webp/4K/Button 6 4k.webp');}
+	{@include box(100%, 19vh, 21vh, 'webp/Large/Button 5 4k.webp');}
 
 	.box-6
-	{@include box(100%, 12.5em, 'webp/4K/Button 7 4k.webp');}
+	{@include box(100%, 23vh, 25vh, 'webp/Large/Button 6 4k.webp');}
+
+	.box-10
+	{@include box(100%, 60vh, 62vh, 'webp/Large/Button 10 4k.webp');}
+}
+
+/*
+	this will save possibly HOURS of development because I always forget to 
+	run the damn SASS command before editing. We can comment it out along with the 
+	javascript and html logic before deployment.
+*/
+.dialog-box {
+    display: none; 
+    position: fixed; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4); 
+    z-index: 1; 
+}
+// stupendously useful comment 
+.dialog-content {
+    background-color: #000000;
+	font-size: 28px;
+	color: white;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 2px solid #888;
+    width: 80%; 
+    box-shadow: 0 6px 12px 0 rgb(0, 0, 0);
+    text-align: center;
+}
+
+.dialog-box button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+	background-color: #888;
+	color: white;
 }

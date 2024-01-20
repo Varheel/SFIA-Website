@@ -1,0 +1,94 @@
+@mixin boxMBL($widthMBL, $minheightMBL, $bg-imgMBL)
+{
+	background: url($bg-imgMBL) no-repeat center / 100% 100%;
+	width: $widthMBL;
+	min-height: $minheightMBL;
+	@content;
+}
+
+@mixin box($width, $min-height, $max-height, $bg-img) 
+{
+    background: url($bg-img) no-repeat center / 100% 100%;
+	width: $width;
+    min-height: $min-height;
+	max-height: $max-height;
+	@content;
+}
+
+/*
+    The image assets for each of these breakpoints will be high quality, due to
+    retina display and pixel-doubling tech that is the standard for most
+    modern displays. Usually around 4K res. Image asset dimensions will
+    mostly differentiate via aspect ratio... 16:9, 16:10, 4:3, 3:2, etc.
+*/
+
+
+
+@mixin media-query($breakpoint)
+{
+    @if $breakpoint == 'xxs'
+    {
+        // Phone in portrait mode
+        @media (min-width: 320px) and (max-width: 479px) 
+        {
+            .col-100.col-md-13.col-lg-13 {display: none;} // sidebars
+
+            .col-100.col-md-74.col-lg-74 {flex-basis: 100%;} // main-content
+
+            .col-100.col-md-66.col-lg-66 {flex-basis: 100%;} // col-66
+
+            .col-100.col-md-33.col-lg-33 {flex-basis: 100%;} // col-33
+
+            .col-100.col-md-50.col-lg-50 {flex-basis: 100%;} // col-50
+
+            @content;
+        }
+    }
+
+    @if $breakpoint == 'xs'
+    {
+        // phone landscape
+        @media (min-width: 480px) and (max-width: 767px) { @content; }
+    }
+
+    @if $breakpoint == 's'
+    {
+        @media (min-width: 768px) and (max-width: 991px) 
+        {
+            @content;
+        }
+    }
+
+    @if $breakpoint == 'md'
+    {
+        @media (min-width: 992px) and (max-width: 1199px) 
+        {
+            .col-100.col-md-66.col-lg-66 {flex-basis: 100%;}
+            .col-100.col-md-33.col-lg-33 {flex-basis: 100%;}
+            #hammerhead-flex > .content{height: 100%;} // Target .box-10 parent
+            #box-four{display: none;}
+            #box-five{display: none;}
+            @content;
+        }
+    }
+//1024
+    @if $breakpoint == 'lg'
+    {
+        @media (min-width: 1200px) { @content; }//16:10 kindle 4:3 ipad pro
+    }
+
+    @if $breakpoint == 'xl'
+    {
+        @media (min-width: 1920px) { @content; }
+    }
+
+    @if $breakpoint == 'xxl'
+    {
+        @media (min-width: 2560px) { @content; }
+    }
+
+    @if $breakpoint == 'xxxl'
+    {
+        @media (min-width: 3840px) { @content; }
+    }
+}
