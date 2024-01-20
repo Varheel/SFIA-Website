@@ -310,7 +310,7 @@ will probably be taller.
     display: none;
   }
   #main-content {
-    background: url("webp/1080p/1080MC.webp") no-repeat center/100% 100% border-box;
+    background: url("webp/1080p/1080MC.webp") no-repeat fixed center/100% 100% border-box;
     height: 84vh;
   }
   #footer {
