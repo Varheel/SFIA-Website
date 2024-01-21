@@ -35,6 +35,10 @@ html {
   font-family: "BRAVE Eightyone Regular";
   src: url(fonts/BraveEightyoneRegular-ZVGvm.ttf) format("truetype");
 }
+#widget {
+  height: 33em;
+}
+
 .content {
   padding: 0.3125rem;
   width: 100%;
